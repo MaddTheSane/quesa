@@ -1,0 +1,135 @@
+framework module Quesa {
+	umbrella header "Quesa.h"
+
+	export *
+	module * { export * }
+	
+	explicit module QuesaCamera {
+		header "QuesaCamera.h"
+		export *
+	}
+	
+	explicit module QuesaShader {
+		header "QuesaShader.h"
+		export *
+	}
+	
+	explicit module QuesaMath {
+		header "QuesaMath.h"
+		export *
+	}
+	
+	explicit module QuesaView {
+		header "QuesaView.h"
+		export *
+	}
+	
+	explicit module QuesaStyle {
+		header "QuesaStyle.h"
+		export *
+	}
+	
+	explicit module QuesaSet {
+		header "QuesaSet.h"
+		export *
+	}
+	
+	explicit module QuesaLight {
+		header "QuesaLight.h"
+		export *
+	}
+	
+	explicit module QuesaGroup {
+		header "QuesaGroup.h"
+		export *
+	}
+	
+	explicit module QuesaTransform {
+		header "QuesaTransform.h"
+		export *
+	}
+	
+	explicit module QuesaStorage {
+		header "QuesaStorage.h"
+		export *
+	}
+	
+	explicit module QuesaGeometry {
+		header "QuesaGeometry.h"
+		export *
+	}
+	
+	explicit module CQ3ObjectRef_Gets {
+		requires cplusplus
+		header "CQ3ObjectRef_Gets.h"
+		export *
+	}
+	
+	explicit module QuesaCustomElements {
+		header "QuesaCustomElements.h"
+		export *
+	}
+	
+	explicit module QuesaViewer {
+		header "QuesaViewer.h"
+		export *
+	}
+	
+	explicit module Q3GroupIterator {
+		requires cplusplus
+		header "Q3GroupIterator.h"
+		export *
+	}
+	
+	explicit module QuesaController {
+		header "QuesaController.h"
+		export *
+	}
+	
+	explicit module QuesaExtension {
+		header "QuesaExtension.h"
+		export *
+	}
+	
+	explicit module QuesaPick {
+		header "QuesaPick.h"
+		export *
+	}
+	
+	explicit module CQ3ObjectRef {
+		requires cplusplus
+		header "CQ3ObjectRef.h"
+		export *
+	}
+	
+	explicit module QuesaRenderer {
+		header "QuesaRenderer.h"
+		export *
+	}
+	
+	explicit module QuesaString {
+		header "QuesaString.h"
+		export *
+	}
+	
+	explicit module QuesaMathOperators {
+		requires cplusplus
+		header "QuesaMathOperators.hpp"
+		export *
+	}
+	
+	explicit module QuesaDrawContext {
+		header "QuesaDrawContext.h"
+		export *
+	}
+	
+	explicit module QuesaMemory {
+		header "QuesaMemory.h"
+		export *
+	}
+	
+	explicit module QuesaIO {
+		header "QuesaIO.h"
+		export *
+	}
+}

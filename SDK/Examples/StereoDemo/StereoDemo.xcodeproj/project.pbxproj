@@ -423,6 +423,7 @@
 		BE1352A40C3C14F400B20B60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -435,6 +436,7 @@
 		BE1352A50C3C14F400B20B60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 			};
 			name = Release;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		559E68B9206F83AC00E5CEA2 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559E68B8206F83AC00E5CEA2 /* QuickTime.framework */; };
 		55A8E79E206EE590008A8C30 /* OldCarbHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A8E79D206EE590008A8C30 /* OldCarbHeaders.h */; };
 		AB3A7CA6055E63B200CA83BE /* E3GeometryBox.c in Sources */ = {isa = PBXBuildFile; fileRef = AB3A7B87055E63B100CA83BE /* E3GeometryBox.c */; };
 		AB3A7CA8055E63B200CA83BE /* E3GeometryCone.c in Sources */ = {isa = PBXBuildFile; fileRef = AB3A7B89055E63B100CA83BE /* E3GeometryCone.c */; };
@@ -334,6 +335,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		559E68B8206F83AC00E5CEA2 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = ../../../../../oldQTFrameworks/QuickTime.framework; sourceTree = SOURCE_ROOT; };
+		559E68BA206F851300E5CEA2 /* Quesa.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = Quesa.modulemap; sourceTree = SOURCE_ROOT; };
 		55A8E79D206EE590008A8C30 /* OldCarbHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldCarbHeaders.h; sourceTree = "<group>"; };
 		8D07F2C80486CC7A007CD1D0 /* Quesa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quesa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3A7B85055E63B100CA83BE /* E3Geometry.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; path = E3Geometry.c; sourceTree = "<group>"; };
@@ -651,6 +654,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				559E68B9206F83AC00E5CEA2 /* QuickTime.framework in Frameworks */,
 				BE7033FD132D30B700C0056D /* AGL.framework in Frameworks */,
 				BE7033FF132D30B700C0056D /* OpenGL.framework in Frameworks */,
 				BE703429132D326300C0056D /* Carbon.framework in Frameworks */,
@@ -683,21 +687,22 @@
 				BE499C950F145E950060DF4E /* xcode-configs */,
 				08FB77ACFE841707C02AAC07 /* Source */,
 				AB83B5D5055E72B90034F56A /* Includes */,
-				0867D69AFE84028FC02AAC07 /* External Frameworks */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DDFF38A45A11DB9C8B /* Products */,
 			);
 			name = Quesa;
 			sourceTree = "<group>";
 		};
-		0867D69AFE84028FC02AAC07 /* External Frameworks */ = {
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				559E68B8206F83AC00E5CEA2 /* QuickTime.framework */,
 				BE7033FC132D30B700C0056D /* AGL.framework */,
 				BE7033FE132D30B700C0056D /* OpenGL.framework */,
 				BE703428132D326300C0056D /* Carbon.framework */,
 				BE7034EC132D32BD00C0056D /* Cocoa.framework */,
 			);
-			name = "External Frameworks";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		08FB77ACFE841707C02AAC07 /* Source */ = {
@@ -709,6 +714,7 @@
 				AB83B949055E77870034F56A /* Platform */,
 			);
 			name = Source;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
 		AB3A7B83055E63B100CA83BE /* Core */ = {
@@ -720,9 +726,8 @@
 				AB3A7BE2055E63B100CA83BE /* System */,
 				AB3A7C11055E63B100CA83BE /* Viewer */,
 			);
-			name = Core;
-			path = ../../Source/Core;
-			sourceTree = SOURCE_ROOT;
+			path = Core;
+			sourceTree = "<group>";
 		};
 		AB3A7B84055E63B100CA83BE /* Geometry */ = {
 			isa = PBXGroup;
@@ -917,9 +922,8 @@
 				BE7F269C0B7BB92C00933ED1 /* OpenGL */,
 				AB3A7C3E055E63B100CA83BE /* Wireframe */,
 			);
-			name = Renderers;
-			path = ../../Source/Renderers;
-			sourceTree = SOURCE_ROOT;
+			path = Renderers;
+			sourceTree = "<group>";
 		};
 		AB3A7C18055E63B100CA83BE /* Common */ = {
 			isa = PBXGroup;
@@ -1006,9 +1010,8 @@
 				AB3A7C4B055E63B100CA83BE /* Readers */,
 				AB3A7C55055E63B100CA83BE /* Writers */,
 			);
-			name = FileFormats;
-			path = ../../Source/FileFormats;
-			sourceTree = SOURCE_ROOT;
+			path = FileFormats;
+			sourceTree = "<group>";
 		};
 		AB3A7C4B055E63B100CA83BE /* Readers */ = {
 			isa = PBXGroup;
@@ -1057,6 +1060,7 @@
 		AB83B5D5055E72B90034F56A /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				559E68BA206F851300E5CEA2 /* Quesa.modulemap */,
 				AB83B5D7055E72B90034F56A /* Quesa */,
 			);
 			name = Includes;
@@ -1103,9 +1107,8 @@
 				BEFFD7CE0C4C86E100202EA8 /* Cocoa */,
 				AB83B959055E77870034F56A /* Mac */,
 			);
-			name = Platform;
-			path = ../../Source/Platform;
-			sourceTree = SOURCE_ROOT;
+			path = Platform;
+			sourceTree = "<group>";
 		};
 		AB83B959055E77870034F56A /* Mac */ = {
 			isa = PBXGroup;
@@ -1306,7 +1309,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = BEDC044F08A57B3000FB3A82 /* Build configuration list for PBXProject "Quesa" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1699,15 +1702,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE499C9A0F145E950060DF4E /* Quesa-framework.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_HEADERS_RUN_UNIFDEF = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/oldQTFrameworks";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"Q3_EXPORT_SYMBOLS=1",
 					"Q3_VALIDATE_DRAW_ELEMENTS=1",
 				);
 				GCC_WARN_PROTOTYPE_CONVERSION = YES;
+				MODULEMAP_FILE = Quesa.modulemap;
+				PRODUCT_BUNDLE_IDENTIFIER = org.Quesa.Quesa;
 			};
 			name = Debug;
 		};
@@ -1715,9 +1724,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE499C9A0F145E950060DF4E /* Quesa-framework.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_HEADERS_RUN_UNIFDEF = YES;
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/oldQTFrameworks";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MODULEMAP_FILE = Quesa.modulemap;
+				PRODUCT_BUNDLE_IDENTIFIER = org.Quesa.Quesa;
 			};
 			name = Release;
 		};
@@ -1725,6 +1740,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE499C9E0F145E950060DF4E /* Quesa-staticlibrary.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 			};
 			name = Debug;
 		};
@@ -1732,6 +1748,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE499C9E0F145E950060DF4E /* Quesa-staticlibrary.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 			};
 			name = Release;
 		};
@@ -1739,7 +1756,31 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE5D0F5F15B79B3C00E3DBE4 /* Modern-Debug.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_HEADERS_RUN_UNIFDEF = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1748,7 +1789,29 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE5D0F6015B79B6500E3DBE4 /* Modern-Release.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_HEADERS_RUN_UNIFDEF = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 			};
 			name = Release;
 		};

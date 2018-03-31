@@ -537,7 +537,7 @@ Q3Memory_GetStatistics(
 #if QUESA_ALLOW_QD3D_EXTENSIONS
 
 Q3_EXTERN_API_C ( TQ3Int32 )
-Q3Memory_GetObjectCount();
+Q3Memory_GetObjectCount(void);
 
 #endif // QUESA_ALLOW_QD3D_EXTENSIONS
 

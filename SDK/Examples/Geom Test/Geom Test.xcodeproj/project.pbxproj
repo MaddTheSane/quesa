@@ -11,6 +11,13 @@
 		5572963F206F150C0068DC8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572963E206F150C0068DC8D /* Assets.xcassets */; };
 		55729645206F150C0068DC8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55729644206F150C0068DC8D /* main.m */; };
 		5572964E206F16620068DC8D /* Qut.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5572964D206F16620068DC8D /* Qut.xib */; };
+		559E68C1206FE3C400E5CEA2 /* 2.tga in Resources */ = {isa = PBXBuildFile; fileRef = BE06F71108C5597C003DD37B /* 2.tga */; };
+		559E68C2206FE3C400E5CEA2 /* 1.tga in Resources */ = {isa = PBXBuildFile; fileRef = BE06F71208C5597C003DD37B /* 1.tga */; };
+		559E68C3206FE3C400E5CEA2 /* 4.tga in Resources */ = {isa = PBXBuildFile; fileRef = BE06F71308C5597C003DD37B /* 4.tga */; };
+		559E68C4206FE3C400E5CEA2 /* 3.tga in Resources */ = {isa = PBXBuildFile; fileRef = BE06F71408C5597C003DD37B /* 3.tga */; };
+		559E68C5206FE3C400E5CEA2 /* 6.tga in Resources */ = {isa = PBXBuildFile; fileRef = BE06F71508C5597C003DD37B /* 6.tga */; };
+		559E68C6206FE3C400E5CEA2 /* 5.tga in Resources */ = {isa = PBXBuildFile; fileRef = BE06F71608C5597C003DD37B /* 5.tga */; };
+		559E68C7206FE3C400E5CEA2 /* Quesa.tga in Resources */ = {isa = PBXBuildFile; fileRef = BE06F74908C55CD4003DD37B /* Quesa.tga */; };
 		55A8E7C9206F058B008A8C30 /* VRML-Reader.quesaplug in Copy Plugins */ = {isa = PBXBuildFile; fileRef = BE0402A90B7FB6BB00CC26D5 /* VRML-Reader.quesaplug */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55A8E7DD206F09F8008A8C30 /* Quesa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8E7D8206F09DA008A8C30 /* Quesa.framework */; };
 		55A8E7DE206F0A09008A8C30 /* Quesa.framework in Copy Private Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8E7D8206F09DA008A8C30 /* Quesa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -220,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				BEDC05D408A5C54600FB3A82 /* main.nib */,
-				BEC0EC610ECA543C0012BA6C /* QutCarbon.r */,
 				BEDC090E08A6CBF200FB3A82 /* GeomTest.icns */,
 				BE06F70E08C5593A003DD37B /* XCode-Info.plist */,
 				BE06F71108C5597C003DD37B /* 2.tga */,
@@ -275,6 +281,7 @@
 		5572964B206F162A0068DC8D /* Carbon */ = {
 			isa = PBXGroup;
 			children = (
+				BEC0EC610ECA543C0012BA6C /* QutCarbon.r */,
 				BEDC05B908A5C0FB00FB3A82 /* QutMac.c */,
 				BEDC05BA08A5C0FB00FB3A82 /* QutMac.h */,
 			);
@@ -468,6 +475,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				559E68C4206FE3C400E5CEA2 /* 3.tga in Resources */,
+				559E68C5206FE3C400E5CEA2 /* 6.tga in Resources */,
+				559E68C2206FE3C400E5CEA2 /* 1.tga in Resources */,
+				559E68C7206FE3C400E5CEA2 /* Quesa.tga in Resources */,
+				559E68C3206FE3C400E5CEA2 /* 4.tga in Resources */,
+				559E68C6206FE3C400E5CEA2 /* 5.tga in Resources */,
+				559E68C1206FE3C400E5CEA2 /* 2.tga in Resources */,
 				5572964E206F16620068DC8D /* Qut.xib in Resources */,
 				5572963F206F150C0068DC8D /* Assets.xcassets in Resources */,
 			);
