@@ -59,7 +59,7 @@
 //==================================================================================
 
 
-@interface Quesa3DView(PrivateMethods)
+@interface Quesa3DView()
 - (void)setupQD3D;
 - (void)initQ3DrawContext;
 - (void)initQ3View;
@@ -77,17 +77,17 @@
 
 + (void)initialize
 {
-	if ( self == [Quesa3DView class] )
-	{
-		TQ3Status qd3dStatus;
-		if (!Q3IsInitialized())    
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		TQ3Status qd3dStatus = kQ3Success;
+		if (!Q3IsInitialized())
 			qd3dStatus = Q3Initialize();
-			
+		
 		if (qd3dStatus != kQ3Success)
 		{
 			NSLog(@"Error in Q3Initialize");
 		}
-	}
+	});
 }
 
 //==================================================================================
@@ -148,19 +148,7 @@
 //	quesaDelegate
 //==================================================================================
 
-- (id)quesaDelegate
-{
-    return quesaDelegate;
-}
-
-//==================================================================================
-//	setQuesaDelegate:
-//==================================================================================
-
-- (void)setQuesaDelegate:(id)inDelegate
-{
-    quesaDelegate = inDelegate;//don't retain to avoid cycles
-}
+@synthesize quesaDelegate;
 
 //==================================================================================
 //	createLight:withData:
@@ -268,28 +256,19 @@
 //	drawContext
 //==================================================================================
 
-- (TQ3DrawContextObject)drawContext
-{
-  return drawContext;
-}
+@synthesize drawContext;
 
 //==================================================================================
 //	quesaView
 //==================================================================================
 
-- (TQ3ViewObject)quesaView
-{
-  return quesaView;
-}
+@synthesize quesaView;
 
 //==================================================================================
 //	camera
 //==================================================================================
 
-- (TQ3CameraObject)camera
-{
-	return camera;
-}
+@synthesize camera;
 
 //==================================================================================
 //	acceptsFirstResponder
@@ -329,11 +308,6 @@
 {
   [self sendEventToDelegate:theEvent];
 }
-
-@end
-
-
-@implementation Quesa3DView(PrivateMethods)
 
 //==================================================================================
 //	setupQD3D

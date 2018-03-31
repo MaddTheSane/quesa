@@ -59,9 +59,9 @@
 //==================================================================================
 
 
-@interface Quesa3DView(PrivateMethods)
+@interface Quesa3DView()
 - (void)setupQD3D;
-- (void)initQ3DrawContext;
+- (void)createQ3DrawContext;
 - (void)initQ3View;
 - (void)createDefaultLights;
 - (void)createDefaultCamera;
@@ -96,7 +96,7 @@
 
 - (id)initWithFrame:(NSRect)frameRect
 {
-	[super initWithFrame:frameRect];
+	if (!(self = [super initWithFrame:frameRect])) return nil;
     qd3dView = NULL;
     drawContext = NULL;
 	
@@ -125,8 +125,6 @@
 
   if (drawContext != NULL)
       Q3Object_Dispose(drawContext);
-
-  [super dealloc];
 }
 
 //==================================================================================
@@ -145,19 +143,11 @@
 //	qd3dDelegate
 //==================================================================================
 
-- (id)qd3dDelegate
-{
-    return qd3dDelegate;
-}
+@synthesize qd3dDelegate=qd3dDelegate;
 
 //==================================================================================
 //	setQD3DDelegate:
 //==================================================================================
-
-- (void)setQD3DDelegate:(id)inDelegate
-{
-    qd3dDelegate = inDelegate;//don't retain to avoid cycles
-}
 
 //==================================================================================
 //	createLight:withData:
@@ -263,19 +253,12 @@
 //	drawContext
 //==================================================================================
 
-- (TQ3DrawContextObject)drawContext
-{
-  return drawContext;
-}
+@synthesize drawContext;
 
 //==================================================================================
 //	qd3dView
 //==================================================================================
-
-- (TQ3ViewObject)qd3dView
-{
-  return qd3dView;
-}
+@synthesize qd3dView;
 
 //==================================================================================
 //	acceptsFirstResponder
@@ -316,26 +299,21 @@
   [self sendEventToDelegate:theEvent];
 }
 
-@end
-
-
-@implementation Quesa3DView(PrivateMethods)
-
 //==================================================================================
 //	setupQD3D
 //==================================================================================
 
 - (void)setupQD3D
 {
-    [self initQ3DrawContext];
+    [self createQ3DrawContext];
     [self initQ3View];
 }
 
 //==================================================================================
-//	initQ3DrawContext
+//	createQ3DrawContext
 //==================================================================================
 
-- (void) initQ3DrawContext
+- (void) createQ3DrawContext
 {
     TQ3CocoaDrawContextData	cocoaDrawContextData;
 	TQ3Boolean				resetDrawContext;
@@ -379,7 +357,7 @@
     cocoaDrawContextData.drawContextData.pane.max.x = frame.origin.x+frame.size.width;
     cocoaDrawContextData.drawContextData.pane.max.y = frame.origin.y+frame.size.height;
     
-	cocoaDrawContextData.nsView  = self;
+	cocoaDrawContextData.nsView  = (__bridge void *)(self);
 
 
 

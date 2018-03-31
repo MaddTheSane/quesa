@@ -16,7 +16,7 @@ SYMROOT = Output-Xcode
 
 // Search Paths
 HEADER_SEARCH_PATHS = $(Boost) $(PROJECT_DIR)/../Resources
-FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../../Libraries/Mac/Framework_Universal/$(CONFIGURATION)"
+FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)"
 
 // Build Options
 DEBUG_INFORMATION_FORMAT = dwarf
@@ -35,7 +35,7 @@ INFOPLIST_PREPROCESS = YES
 INFOPLIST_PREFIX_HEADER = ../Resources/version.h
 
 // Deployment
-MACOSX_DEPLOYMENT_TARGET = 10.6
+MACOSX_DEPLOYMENT_TARGET = 10.9
 
 // Language
 GCC_PREFIX_HEADER = ../Source/Precompiled Headers/VRML-Reader_Prefix.pch

@@ -136,7 +136,7 @@ typedef struct E3MacSystem_PluginSlot {
 static AliasHandle gQuesaLib = NULL;
 #endif
 
-short gShlbResFile = 0;
+ResFileRefNum gShlbResFile = 0;
 
 static E3MacSystem_PluginSlotPtr e3macsystem_pluginSlotHead = NULL;
 
@@ -154,7 +154,7 @@ static E3MacSystem_PluginSlotPtr e3macsystem_pluginSlotHead = NULL;
 static void e3macho_load_plugin( CFBundleRef theBundle )
 {
 	E3MacSystem_PluginSlotPtr newSlot = NULL;
-	short oldResFile = CurResFile();
+	ResFileRefNum oldResFile = CurResFile();
 	
 	// Load the plugin, which causes the function marked as CALL_ON_LOAD
 	// to be called.
@@ -342,7 +342,7 @@ void E3MacMachoFrameworkInit()
 		// plug-ins in the same directory.  However, we do not expect to find plug-ins
 		// in the same location as a framework.
 		
-		short oldResFile = CurResFile();
+		ResFileRefNum oldResFile = CurResFile();
 		gShlbResFile = CFBundleOpenBundleResourceMap( myBundle );
 		UseResFile(oldResFile);
 	}
@@ -358,6 +358,7 @@ void E3MacMachoFrameworkInit()
 #if __MWERKS__
 #pragma CALL_ON_UNLOAD	E3MacMachoFrameworkTerminate
 #endif
+__attribute__((destructor))
 void E3MacMachoFrameworkTerminate()
 {
 	// Close the resource file.

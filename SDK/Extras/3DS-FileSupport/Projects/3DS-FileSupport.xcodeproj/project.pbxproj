@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B11570EF0CCB36C6003BB66E /* Quesa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11570D50CCB3523003BB66E /* Quesa.framework */; };
+		55A8E7B7206EFDBF008A8C30 /* Quesa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11570D50CCB3523003BB66E /* Quesa.framework */; };
 		B14DEE3C0BC959E000FB3636 /* C3DSReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B14DEE3B0BC959E000FB3636 /* C3DSReader.cpp */; };
 		B15582030B5D9D2C004E2AE6 /* C3DSWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B15581FE0B5D9D2C004E2AE6 /* C3DSWriter.cpp */; };
 		B15582040B5D9D2C004E2AE6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B15582000B5D9D2C004E2AE6 /* main.cpp */; };
@@ -53,6 +53,13 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
+		55A8E7B8206EFDC8008A8C30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B11570CD0CCB3523003BB66E /* Quesa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D07F2BC0486CC7A007CD1D0;
+			remoteInfo = Framework;
+		};
 		B11570D40CCB3523003BB66E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B11570CD0CCB3523003BB66E /* Quesa.xcodeproj */;
@@ -81,46 +88,46 @@
 		B15582010B5D9D2C004E2AE6 /* quesa-methods.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = "quesa-methods.cpp"; sourceTree = "<group>"; };
 		B15582020B5D9D2C004E2AE6 /* quesa-methods.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = "quesa-methods.h"; path = "../Source/quesa-methods.h"; sourceTree = SOURCE_ROOT; };
 		B155821E0B5E3EA5004E2AE6 /* 3DS-FileSupport.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = "3DS-FileSupport.xcconfig"; sourceTree = "<group>"; };
-		B1BDF8090B62DC1000A6A5E4 /* atmosphere.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = atmosphere.c; path = ../lib3ds/lib3ds/atmosphere.c; sourceTree = SOURCE_ROOT; };
-		B1BDF80A0B62DC1000A6A5E4 /* atmosphere.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = atmosphere.h; path = ../lib3ds/lib3ds/atmosphere.h; sourceTree = SOURCE_ROOT; };
-		B1BDF80B0B62DC1000A6A5E4 /* background.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = background.c; path = ../lib3ds/lib3ds/background.c; sourceTree = SOURCE_ROOT; };
-		B1BDF80C0B62DC1000A6A5E4 /* background.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = background.h; path = ../lib3ds/lib3ds/background.h; sourceTree = SOURCE_ROOT; };
-		B1BDF80D0B62DC1000A6A5E4 /* camera.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = camera.c; path = ../lib3ds/lib3ds/camera.c; sourceTree = SOURCE_ROOT; };
-		B1BDF80E0B62DC1000A6A5E4 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = camera.h; path = ../lib3ds/lib3ds/camera.h; sourceTree = SOURCE_ROOT; };
-		B1BDF80F0B62DC1000A6A5E4 /* chunk.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = chunk.c; path = ../lib3ds/lib3ds/chunk.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8100B62DC1000A6A5E4 /* chunk.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = chunk.h; path = ../lib3ds/lib3ds/chunk.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8110B62DC1000A6A5E4 /* chunktable.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = chunktable.h; path = ../lib3ds/lib3ds/chunktable.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8120B62DC1000A6A5E4 /* ease.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = ease.c; path = ../lib3ds/lib3ds/ease.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8130B62DC1000A6A5E4 /* ease.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ease.h; path = ../lib3ds/lib3ds/ease.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8140B62DC1000A6A5E4 /* file.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = file.c; path = ../lib3ds/lib3ds/file.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8150B62DC1000A6A5E4 /* file.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = file.h; path = ../lib3ds/lib3ds/file.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8160B62DC1000A6A5E4 /* float.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = float.c; path = ../lib3ds/lib3ds/float.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8170B62DC1000A6A5E4 /* float.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = float.h; path = ../lib3ds/lib3ds/float.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8180B62DC1000A6A5E4 /* io.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = io.c; path = ../lib3ds/lib3ds/io.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8190B62DC1000A6A5E4 /* io.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = io.h; path = ../lib3ds/lib3ds/io.h; sourceTree = SOURCE_ROOT; };
-		B1BDF81A0B62DC1000A6A5E4 /* light.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = light.c; path = ../lib3ds/lib3ds/light.c; sourceTree = SOURCE_ROOT; };
-		B1BDF81B0B62DC1000A6A5E4 /* light.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = light.h; path = ../lib3ds/lib3ds/light.h; sourceTree = SOURCE_ROOT; };
-		B1BDF81C0B62DC1000A6A5E4 /* material.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = material.c; path = ../lib3ds/lib3ds/material.c; sourceTree = SOURCE_ROOT; };
-		B1BDF81D0B62DC1000A6A5E4 /* material.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = material.h; path = ../lib3ds/lib3ds/material.h; sourceTree = SOURCE_ROOT; };
-		B1BDF81E0B62DC1000A6A5E4 /* matrix.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = matrix.c; path = ../lib3ds/lib3ds/matrix.c; sourceTree = SOURCE_ROOT; };
-		B1BDF81F0B62DC1000A6A5E4 /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = matrix.h; path = ../lib3ds/lib3ds/matrix.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8200B62DC1000A6A5E4 /* mesh.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = mesh.c; path = ../lib3ds/lib3ds/mesh.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8210B62DC1000A6A5E4 /* mesh.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = mesh.h; path = ../lib3ds/lib3ds/mesh.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8220B62DC1000A6A5E4 /* node.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = node.c; path = ../lib3ds/lib3ds/node.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8230B62DC1000A6A5E4 /* node.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = node.h; path = ../lib3ds/lib3ds/node.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8240B62DC1000A6A5E4 /* quat.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = quat.c; path = ../lib3ds/lib3ds/quat.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8250B62DC1000A6A5E4 /* quat.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = quat.h; path = ../lib3ds/lib3ds/quat.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8260B62DC1000A6A5E4 /* shadow.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = shadow.c; path = ../lib3ds/lib3ds/shadow.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8270B62DC1000A6A5E4 /* shadow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = shadow.h; path = ../lib3ds/lib3ds/shadow.h; sourceTree = SOURCE_ROOT; };
-		B1BDF8280B62DC1000A6A5E4 /* tcb.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = tcb.c; path = ../lib3ds/lib3ds/tcb.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8290B62DC1000A6A5E4 /* tcb.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = tcb.h; path = ../lib3ds/lib3ds/tcb.h; sourceTree = SOURCE_ROOT; };
-		B1BDF82A0B62DC1000A6A5E4 /* tracks.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = tracks.c; path = ../lib3ds/lib3ds/tracks.c; sourceTree = SOURCE_ROOT; };
-		B1BDF82B0B62DC1000A6A5E4 /* tracks.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = tracks.h; path = ../lib3ds/lib3ds/tracks.h; sourceTree = SOURCE_ROOT; };
-		B1BDF82C0B62DC1000A6A5E4 /* types.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = types.h; path = ../lib3ds/lib3ds/types.h; sourceTree = SOURCE_ROOT; };
-		B1BDF82D0B62DC1000A6A5E4 /* vector.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = vector.c; path = ../lib3ds/lib3ds/vector.c; sourceTree = SOURCE_ROOT; };
-		B1BDF82E0B62DC1000A6A5E4 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = vector.h; path = ../lib3ds/lib3ds/vector.h; sourceTree = SOURCE_ROOT; };
-		B1BDF82F0B62DC1000A6A5E4 /* viewport.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = viewport.c; path = ../lib3ds/lib3ds/viewport.c; sourceTree = SOURCE_ROOT; };
-		B1BDF8300B62DC1000A6A5E4 /* viewport.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = viewport.h; path = ../lib3ds/lib3ds/viewport.h; sourceTree = SOURCE_ROOT; };
+		B1BDF8090B62DC1000A6A5E4 /* atmosphere.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = atmosphere.c; sourceTree = "<group>"; };
+		B1BDF80A0B62DC1000A6A5E4 /* atmosphere.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = atmosphere.h; sourceTree = "<group>"; };
+		B1BDF80B0B62DC1000A6A5E4 /* background.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = background.c; sourceTree = "<group>"; };
+		B1BDF80C0B62DC1000A6A5E4 /* background.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = background.h; sourceTree = "<group>"; };
+		B1BDF80D0B62DC1000A6A5E4 /* camera.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = camera.c; sourceTree = "<group>"; };
+		B1BDF80E0B62DC1000A6A5E4 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
+		B1BDF80F0B62DC1000A6A5E4 /* chunk.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = chunk.c; sourceTree = "<group>"; };
+		B1BDF8100B62DC1000A6A5E4 /* chunk.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = chunk.h; sourceTree = "<group>"; };
+		B1BDF8110B62DC1000A6A5E4 /* chunktable.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = chunktable.h; sourceTree = "<group>"; };
+		B1BDF8120B62DC1000A6A5E4 /* ease.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = ease.c; sourceTree = "<group>"; };
+		B1BDF8130B62DC1000A6A5E4 /* ease.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ease.h; sourceTree = "<group>"; };
+		B1BDF8140B62DC1000A6A5E4 /* file.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = file.c; sourceTree = "<group>"; };
+		B1BDF8150B62DC1000A6A5E4 /* file.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = file.h; sourceTree = "<group>"; };
+		B1BDF8160B62DC1000A6A5E4 /* float.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = float.c; sourceTree = "<group>"; };
+		B1BDF8170B62DC1000A6A5E4 /* float.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = float.h; sourceTree = "<group>"; };
+		B1BDF8180B62DC1000A6A5E4 /* io.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = io.c; sourceTree = "<group>"; };
+		B1BDF8190B62DC1000A6A5E4 /* io.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = io.h; sourceTree = "<group>"; };
+		B1BDF81A0B62DC1000A6A5E4 /* light.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = light.c; sourceTree = "<group>"; };
+		B1BDF81B0B62DC1000A6A5E4 /* light.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = light.h; sourceTree = "<group>"; };
+		B1BDF81C0B62DC1000A6A5E4 /* material.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = material.c; sourceTree = "<group>"; };
+		B1BDF81D0B62DC1000A6A5E4 /* material.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = material.h; sourceTree = "<group>"; };
+		B1BDF81E0B62DC1000A6A5E4 /* matrix.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = matrix.c; sourceTree = "<group>"; };
+		B1BDF81F0B62DC1000A6A5E4 /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
+		B1BDF8200B62DC1000A6A5E4 /* mesh.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = mesh.c; sourceTree = "<group>"; };
+		B1BDF8210B62DC1000A6A5E4 /* mesh.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = mesh.h; sourceTree = "<group>"; };
+		B1BDF8220B62DC1000A6A5E4 /* node.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = node.c; sourceTree = "<group>"; };
+		B1BDF8230B62DC1000A6A5E4 /* node.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
+		B1BDF8240B62DC1000A6A5E4 /* quat.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = quat.c; sourceTree = "<group>"; };
+		B1BDF8250B62DC1000A6A5E4 /* quat.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = quat.h; sourceTree = "<group>"; };
+		B1BDF8260B62DC1000A6A5E4 /* shadow.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = shadow.c; sourceTree = "<group>"; };
+		B1BDF8270B62DC1000A6A5E4 /* shadow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = shadow.h; sourceTree = "<group>"; };
+		B1BDF8280B62DC1000A6A5E4 /* tcb.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = tcb.c; sourceTree = "<group>"; };
+		B1BDF8290B62DC1000A6A5E4 /* tcb.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = tcb.h; sourceTree = "<group>"; };
+		B1BDF82A0B62DC1000A6A5E4 /* tracks.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = tracks.c; sourceTree = "<group>"; };
+		B1BDF82B0B62DC1000A6A5E4 /* tracks.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = tracks.h; sourceTree = "<group>"; };
+		B1BDF82C0B62DC1000A6A5E4 /* types.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		B1BDF82D0B62DC1000A6A5E4 /* vector.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = vector.c; sourceTree = "<group>"; };
+		B1BDF82E0B62DC1000A6A5E4 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = vector.h; sourceTree = "<group>"; };
+		B1BDF82F0B62DC1000A6A5E4 /* viewport.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = viewport.c; sourceTree = "<group>"; };
+		B1BDF8300B62DC1000A6A5E4 /* viewport.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = viewport.h; sourceTree = "<group>"; };
 		BE61011E08EFA04E0020A13D /* version.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = version.h; path = ../Resources/version.h; sourceTree = SOURCE_ROOT; };
 		BEC95CBA08A86BD2001E16B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -130,7 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B11570EF0CCB36C6003BB66E /* Quesa.framework in Frameworks */,
+				55A8E7B7206EFDBF008A8C30 /* Quesa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +244,7 @@
 				B1BDF8300B62DC1000A6A5E4 /* viewport.h */,
 			);
 			name = lib3ds;
+			path = ../lib3ds/lib3ds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +263,7 @@
 				BEC95E6F08A87E66001E16B9 /* PBXBuildRule */,
 			);
 			dependencies = (
+				55A8E7B9206EFDC8008A8C30 /* PBXTargetDependency */,
 			);
 			name = "3DS-Support";
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -267,6 +276,8 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = BEC95CB308A86B3C001E16B9 /* Build configuration list for PBXProject "3DS-FileSupport" */;
 			compatibilityVersion = "Xcode 3.0";
 			developmentRegion = English;
@@ -352,6 +363,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		55A8E7B9206EFDC8008A8C30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Framework;
+			targetProxy = 55A8E7B8206EFDC8008A8C30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		BE7C488208AF202E00559F64 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -364,13 +383,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					ppc,
-					i386,
+					"$(ARCHS_STANDARD_32_BIT)",
+					"$(ARCHS_STANDARD_64_BIT)",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				PRODUCT_NAME = "3DS-Support";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -384,12 +404,17 @@
 		BEC95CB408A86B3C001E16B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					"$(ARCHS_STANDARD_64_BIT)",
+				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(GCC_PREPROCESSOR_DEFINITIONS)",
 					"DEBUG=1",
 				);
 				PRODUCT_NAME = "3DS-Support";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};

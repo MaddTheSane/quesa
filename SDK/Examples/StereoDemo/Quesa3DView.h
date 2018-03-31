@@ -43,20 +43,21 @@
 #import <AppKit/AppKit.h>
 #include <Quesa/Quesa.h>
 
+@protocol Quesa3DViewDelegate;
+
 @interface Quesa3DView : NSView
 {
-    id 						quesaDelegate;
+    id<Quesa3DViewDelegate> quesaDelegate;
     TQ3DrawContextObject	drawContext;
     TQ3ViewObject			quesaView;
 	TQ3CameraObject			camera;
 }
 
-- (id)quesaDelegate;
-- (void)setQuesaDelegate:(id)inDelegate;
+@property (assign) id<Quesa3DViewDelegate> quesaDelegate; //don't retain to avoid cycles
 
-- (TQ3DrawContextObject)drawContext;
-- (TQ3ViewObject)quesaView;
-- (TQ3CameraObject)camera;
+@property (readonly) TQ3DrawContextObject drawContext;
+@property (readonly) TQ3ViewObject quesaView;
+@property (readonly) TQ3CameraObject camera;
 
 - (void) createLight:(TQ3ObjectType) lightType withData:(void *)lightData;
 //this shouldn't be called directly, but is here for subclasses to override
@@ -86,7 +87,8 @@
 //	At the moment, KeyUp and KeyDown events are also passed to the quesaView. I'm not sure
 //	if this is a good idea or not, but they seem useful there.
 //===========================================================================
-@interface NSObject(Quesa3DViewDelegate)
+@protocol Quesa3DViewDelegate <NSObject>
+@optional
 -(void)quesaViewDidInit:(Quesa3DView*)inView;
 -(void)quesaViewWillRender:(Quesa3DView*)inView;
 -(void)quesaViewSubmitObjects:(Quesa3DView*)inView;

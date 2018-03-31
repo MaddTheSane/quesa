@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55A8E79E206EE590008A8C30 /* OldCarbHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A8E79D206EE590008A8C30 /* OldCarbHeaders.h */; };
 		AB3A7CA6055E63B200CA83BE /* E3GeometryBox.c in Sources */ = {isa = PBXBuildFile; fileRef = AB3A7B87055E63B100CA83BE /* E3GeometryBox.c */; };
 		AB3A7CA8055E63B200CA83BE /* E3GeometryCone.c in Sources */ = {isa = PBXBuildFile; fileRef = AB3A7B89055E63B100CA83BE /* E3GeometryCone.c */; };
 		AB3A7CAA055E63B200CA83BE /* E3GeometryCylinder.c in Sources */ = {isa = PBXBuildFile; fileRef = AB3A7B8B055E63B100CA83BE /* E3GeometryCylinder.c */; };
@@ -333,6 +334,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55A8E79D206EE590008A8C30 /* OldCarbHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldCarbHeaders.h; sourceTree = "<group>"; };
 		8D07F2C80486CC7A007CD1D0 /* Quesa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quesa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3A7B85055E63B100CA83BE /* E3Geometry.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; path = E3Geometry.c; sourceTree = "<group>"; };
 		AB3A7B86055E63B100CA83BE /* E3Geometry.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = E3Geometry.h; sourceTree = "<group>"; };
@@ -895,6 +897,7 @@
 		AB3A7C11055E63B100CA83BE /* Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				55A8E79D206EE590008A8C30 /* OldCarbHeaders.h */,
 				AB3A7C12055E63B100CA83BE /* E3Viewer.c */,
 				AB3A7C13055E63B100CA83BE /* E3Viewer.h */,
 				AB3A7C14055E63B100CA83BE /* E3ViewerOldAPIs.c */,
@@ -1236,6 +1239,7 @@
 				AB83B5F7055E72B90034F56A /* QuesaGeometry.h in Headers */,
 				AB83B5F8055E72B90034F56A /* QuesaGroup.h in Headers */,
 				AB83B5F9055E72B90034F56A /* QuesaIO.h in Headers */,
+				55A8E79E206EE590008A8C30 /* OldCarbHeaders.h in Headers */,
 				AB83B5FA055E72B90034F56A /* QuesaLight.h in Headers */,
 				AB83B5FB055E72B90034F56A /* QuesaMath.h in Headers */,
 				AB83B5FC055E72B90034F56A /* QuesaMemory.h in Headers */,
@@ -1695,6 +1699,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE499C9A0F145E950060DF4E /* Quesa-framework.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_HEADERS_RUN_UNIFDEF = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -1702,7 +1708,6 @@
 					"Q3_VALIDATE_DRAW_ELEMENTS=1",
 				);
 				GCC_WARN_PROTOTYPE_CONVERSION = YES;
-				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
@@ -1710,8 +1715,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE499C9A0F145E950060DF4E /* Quesa-framework.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_HEADERS_RUN_UNIFDEF = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Release;
 		};
@@ -1733,6 +1739,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE5D0F5F15B79B3C00E3DBE4 /* Modern-Debug.xcconfig */;
 			buildSettings = {
+				COPY_HEADERS_RUN_UNIFDEF = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1741,6 +1748,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE5D0F6015B79B6500E3DBE4 /* Modern-Release.xcconfig */;
 			buildSettings = {
+				COPY_HEADERS_RUN_UNIFDEF = YES;
 			};
 			name = Release;
 		};

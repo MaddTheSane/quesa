@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE775A3209F809A5006C1ED3 /* Quesa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE775A3109F809A5006C1ED3 /* Quesa.framework */; };
+		55A8E7CF206F06FC008A8C30 /* Quesa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECECD361B4DF51700276CE7 /* Quesa.framework */; };
 		BE8D81F61328AAFC009324C6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE8D81F51328AAFC009324C6 /* main.cpp */; };
 		BE8D81F81328AB2B009324C6 /* quesa-methods.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE8D81F71328AB2B009324C6 /* quesa-methods.cpp */; };
 		BE8D81FA1328AB34009324C6 /* CVRMLReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE8D81F91328AB34009324C6 /* CVRMLReader.cpp */; };
@@ -88,6 +88,13 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
+		55A8E7CC206F06F4008A8C30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BECECD301B4DF51700276CE7 /* Quesa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D07F2BC0486CC7A007CD1D0;
+			remoteInfo = Framework;
+		};
 		BECECD351B4DF51700276CE7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BECECD301B4DF51700276CE7 /* Quesa.xcodeproj */;
@@ -107,7 +114,6 @@
 /* Begin PBXFileReference section */
 		8D01CCD20486CAD60068D4B7 /* VRML-Reader.quesaplug */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VRML-Reader.quesaplug"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE61011E08EFA04E0020A13D /* version.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = version.h; path = ../Resources/version.h; sourceTree = SOURCE_ROOT; };
-		BE775A3109F809A5006C1ED3 /* Quesa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quesa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7C47E608AEC56600559F64 /* SetGroupName.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SetGroupName.h; sourceTree = "<group>"; };
 		BE7C47E708AEC56600559F64 /* GetObjectName.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GetObjectName.h; sourceTree = "<group>"; };
 		BE8D81F51328AAFC009324C6 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../Source/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -239,7 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE775A3209F809A5006C1ED3 /* Quesa.framework in Frameworks */,
+				55A8E7CF206F06FC008A8C30 /* Quesa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +261,7 @@
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
 				BE04049C0B7FDC6300CC26D5 /* Projects */,
 				19C28FB4FE9D528D11CA2CBB /* Products */,
+				55A8E7CE206F06FC008A8C30 /* Frameworks */,
 			);
 			name = "VRML-Reader";
 			sourceTree = "<group>";
@@ -262,7 +269,6 @@
 		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				BE775A3109F809A5006C1ED3 /* Quesa.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -300,6 +306,13 @@
 				8D01CCD20486CAD60068D4B7 /* VRML-Reader.quesaplug */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		55A8E7CE206F06FC008A8C30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BE04049C0B7FDC6300CC26D5 /* Projects */ = {
@@ -479,7 +492,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEC95CAF08A86B3C001E16B9 /* Build configuration list for PBXNativeTarget "VRML-Reader" */;
 			buildPhases = (
-				BE0403A50B7FDAA100CC26D5 /* Make Symbolic Link */,
 				8D01CCC90486CAD60068D4B7 /* Resources */,
 				8D01CCCB0486CAD60068D4B7 /* Sources */,
 				8D01CCCD0486CAD60068D4B7 /* Frameworks */,
@@ -489,6 +501,7 @@
 				BEC95E6F08A87E66001E16B9 /* PBXBuildRule */,
 			);
 			dependencies = (
+				55A8E7CD206F06F4008A8C30 /* PBXTargetDependency */,
 			);
 			name = "VRML-Reader";
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -501,6 +514,8 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = BEC95CB308A86B3C001E16B9 /* Build configuration list for PBXProject "VRML-Reader" */;
 			compatibilityVersion = "Xcode 3.0";
 			developmentRegion = English;
@@ -552,23 +567,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		BE0403A50B7FDAA100CC26D5 /* Make Symbolic Link */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Make Symbolic Link";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Go into the configuration directory\ncd \"$CONFIGURATION_BUILD_DIR\"\n\n# Make symbolic link to Quesa\nln -h -f -s \"../../../../../Libraries/Mac/Framework_Modern/Debug/Quesa.framework\" Quesa.framework\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D01CCCB0486CAD60068D4B7 /* Sources */ = {
@@ -638,10 +636,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		55A8E7CD206F06F4008A8C30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Framework;
+			targetProxy = 55A8E7CC206F06F4008A8C30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		BE7C488208AF202E00559F64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				Boost = /opt/local/include/;
 			};
 			name = Release;
 		};
@@ -662,6 +669,7 @@
 		BEC95CB008A86B3C001E16B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				Boost = /opt/local/include/;
 			};
 			name = Debug;
 		};
@@ -674,6 +682,7 @@
 					"$(GCC_PREPROCESSOR_DEFINITIONS)",
 					"DEBUG=1",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};

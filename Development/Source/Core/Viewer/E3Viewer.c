@@ -188,7 +188,7 @@ static TQ3GeometryObject	sGuideCircle       = NULL;
 static TQ3ShaderObject		sPhongShader       = NULL;
 static TQ3ShaderObject		sLambertShader     = NULL;
 
-extern short gShlbResFile;
+extern ResFileRefNum gShlbResFile;
 
 
 
@@ -426,7 +426,11 @@ static TQ3GeometryObject e3viewer_createGuideCircle(void)
 }
 
 
-
+#if QUESA_SUPPORT_HITOOLBOX
+#ifdef QD_HEADERS_ARE_PRIVATE
+#include "OldCarbHeaders.h"
+#endif
+#endif
 
 
 //=============================================================================
@@ -457,7 +461,7 @@ static void e3viewer_drawButton(TQ3ViewerData *data,
 		if (!sIconImages || !sIconMasks)
 			{
 			Rect r2 = {0,0, 56, 256};
-			short oldResFile = CurResFile();
+			ResFileRefNum oldResFile = CurResFile();
 			if (gShlbResFile) UseResFile(gShlbResFile);
 			resPic = GetPicture(129);
 			UseResFile(oldResFile);
@@ -624,7 +628,7 @@ static TQ3Int32 e3viewer_popupMenu (TQ3Area* r, TQ3Int32 menuID, TQ3Int32 *outMe
 	TQ3Int32 result = 0;
 	#if QUESA_SUPPORT_HITOOLBOX
 		MenuHandle menu;
-		short oldResFile = CurResFile();
+		ResFileRefNum oldResFile = CurResFile();
 		if (gShlbResFile) UseResFile(gShlbResFile);
 		menu = GetMenu (menuID);
 		if (menu && r)
@@ -1002,7 +1006,7 @@ static void e3viewer_doOptionsButton(TQ3ViewerObject theViewer)
 	MenuHandle			rendererMenu;
 	MenuHandle			optionsMenu;
 	MenuHandle			lightsMenu;
-	short				oldResFile = CurResFile();
+	ResFileRefNum		oldResFile = CurResFile();
 	TQ3Area				rect;
 	#endif
 

@@ -61,6 +61,9 @@
 //      Mac OS Viewer APIs
 //-----------------------------------------------------------------------------
 #if QUESA_SUPPORT_HITOOLBOX
+#ifdef QD_HEADERS_ARE_PRIVATE
+#include "OldCarbHeaders.h"
+#endif
 
 #pragma mark Mac OS Viewer APIs
 #pragma mark -

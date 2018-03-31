@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55A8E7B0206EF867008A8C30 /* Quesa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFFD8650C4C8C9000202EA8 /* Quesa.framework */; };
+		55A8E7B1206EF86D008A8C30 /* Quesa.framework in Copy Private Frameworks */ = {isa = PBXBuildFile; fileRef = BEFFD8650C4C8C9000202EA8 /* Quesa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE1352920C3C14F400B20B60 /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 17327D4CFF18F4807F000001 /* AppDelegate.h */; };
 		BE1352930C3C14F400B20B60 /* DemoGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E8954ACFF1927E77F000001 /* DemoGeometry.h */; };
 		BE1352940C3C14F400B20B60 /* Quesa3DView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2179FF0AFF19522C7F000001 /* Quesa3DView.h */; };
@@ -19,8 +21,6 @@
 		BE13529E0C3C14F400B20B60 /* QuesaCocoaUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A02D4FF1986E17F000001 /* QuesaCocoaUtil.m */; settings = {ATTRIBUTES = (); }; };
 		BE67F2591734626500A49604 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE67F2581734626500A49604 /* Cocoa.framework */; };
 		BEE5742D142270820096EFC0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE5742B142270820096EFC0 /* MainMenu.xib */; };
-		BEFFD8930C4C8D6C00202EA8 /* Quesa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFFD8920C4C8D6C00202EA8 /* Quesa.framework */; };
-		BEFFD8AF0C4C8D7A00202EA8 /* Quesa.framework in Copy Private Frameworks */ = {isa = PBXBuildFile; fileRef = BEFFD8920C4C8D6C00202EA8 /* Quesa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BEFFD8AF0C4C8D7A00202EA8 /* Quesa.framework in Copy Private Frameworks */,
+				55A8E7B1206EF86D008A8C30 /* Quesa.framework in Copy Private Frameworks */,
 			);
 			name = "Copy Private Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,8 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A8E7B0206EF867008A8C30 /* Quesa.framework in Frameworks */,
 				BE67F2591734626500A49604 /* Cocoa.framework in Frameworks */,
-				BEFFD8930C4C8D6C00202EA8 /* Quesa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +97,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				17327D4CFF18F4807F000001 /* AppDelegate.h */,
 				17327D4BFF18F4807F000001 /* AppDelegate.m */,
+				1E8954ACFF1927E77F000001 /* DemoGeometry.h */,
 				1E8954AAFF19270E7F000001 /* DemoGeometry.m */,
+				2D6A02D3FF1986E17F000001 /* QuesaCocoaUtil.h */,
 				2D6A02D4FF1986E17F000001 /* QuesaCocoaUtil.m */,
 			);
 			name = Classes;
@@ -165,20 +168,9 @@
 			children = (
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
-				33CEB99F0055FFC57F000001 /* Headers */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 			);
 			name = "Demo App";
-			sourceTree = "<group>";
-		};
-		33CEB99F0055FFC57F000001 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				2D6A02D3FF1986E17F000001 /* QuesaCocoaUtil.h */,
-				17327D4CFF18F4807F000001 /* AppDelegate.h */,
-				1E8954ACFF1927E77F000001 /* DemoGeometry.h */,
-			);
-			name = Headers;
 			sourceTree = "<group>";
 		};
 		33CEB9A00055FFC57F000001 /* Quesa3DView */ = {
@@ -251,8 +243,10 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = B1FFA3480906B1A30010DA99 /* Build configuration list for PBXProject "Quesa3DView" */;
-			compatibilityVersion = "Xcode 3.0";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -382,16 +376,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE13530F0C3C190300B20B60 /* project.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
 			};
 			name = Release;
 		};
 		BE1352A40C3C14F400B20B60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -403,6 +395,7 @@
 		BE1352A50C3C14F400B20B60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 			};
 			name = Release;
 		};

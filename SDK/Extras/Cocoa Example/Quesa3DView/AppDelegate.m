@@ -98,7 +98,7 @@ static TQ3ShaderObject createTextureFromFile(NSString * fileName)
 
 	NSLog(@"createTextureFromFile:fileName:[%@]", fileName);
 
-	theImage = [NSBitmapImageRep imageRepWithContentsOfFile: fileName];
+	theImage = (NSBitmapImageRep*)[NSBitmapImageRep imageRepWithContentsOfFile: fileName];
 
 	if (theImage)
 	{
@@ -157,7 +157,7 @@ static TQ3ShapeObject createObjectFromFile( NSString* inFilePath )
 	TQ3Uns32 memberCount = 0;
 	
 	// Create a storage object
-	const char* filePath = [inFilePath UTF8String];
+	const char* filePath = [inFilePath fileSystemRepresentation];
 	TQ3StorageObject theStorage = Q3PathStorage_New( filePath );
 	if (theStorage != NULL)
 	{
@@ -209,7 +209,7 @@ static TQ3ShapeObject createObjectFromFile( NSString* inFilePath )
 static void SaveObjectToFile( TQ3ShapeObject inGeometry, NSURL* inDestination,
 								TQ3ViewObject inView )
 {
-	TQ3StorageObject theStorage = Q3PathStorage_New( [[inDestination path] UTF8String] );
+	TQ3StorageObject theStorage = Q3PathStorage_New( [[inDestination path] fileSystemRepresentation] );
 	if (theStorage != NULL)
 	{
 		TQ3FileObject theFile = Q3File_New();
@@ -275,6 +275,10 @@ static void ApplyTextureToShape( TQ3ShaderObject inTextureShader, TQ3ShapeObject
 	}
 }
 
+@interface AppDelegate() <Quesa3DViewDelegate>
+
+@end
+
 @implementation AppDelegate
 
 //==================================================================================
@@ -292,7 +296,6 @@ static void ApplyTextureToShape( TQ3ShaderObject inTextureShader, TQ3ShapeObject
 			NSOpenGLPFAStencilSize, 8,
 			NSOpenGLPFASampleBuffers, 1,
 			NSOpenGLPFASamples, 4,
-			NSOpenGLPFAWindow,
 			0
 		};
 		
@@ -316,8 +319,6 @@ static void ApplyTextureToShape( TQ3ShaderObject inTextureShader, TQ3ShapeObject
 
 - (void) dealloc
 {
-	[mAnimationTimer release];
-	[mPixelFormat release];
 	
 	if (mSceneBounds != NULL)
 	{
@@ -332,7 +333,6 @@ static void ApplyTextureToShape( TQ3ShaderObject inTextureShader, TQ3ShapeObject
 		Q3Object_Dispose( mSceneGeometry );
 	}
 	
-	[super dealloc];
 }
 
 //==================================================================================
@@ -524,16 +524,15 @@ static void ApplyTextureToShape( TQ3ShaderObject inTextureShader, TQ3ShapeObject
 		
 		if (mAnimates)
 		{
-			mAnimationTimer = [[NSTimer scheduledTimerWithTimeInterval: 0.05f
+			mAnimationTimer = [NSTimer scheduledTimerWithTimeInterval: 0.05f
 										target: self
 										selector: @selector(animationTimerFired:)
 										userInfo: nil
-										repeats: YES]retain];
+										repeats: YES];
 		}
 		else
 		{
 			[mAnimationTimer invalidate];
-			[mAnimationTimer release];
 			mAnimationTimer = nil;
 			[self updateManualRotation];
 		}

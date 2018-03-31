@@ -43,18 +43,22 @@
 #import <AppKit/AppKit.h>
 #include <Quesa/Quesa.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
+@protocol Quesa3DViewDelegate;
+
 @interface Quesa3DView : NSView
 {
-    id 						qd3dDelegate;
+    id<Quesa3DViewDelegate> __unsafe_unretained qd3dDelegate;
     TQ3DrawContextObject	drawContext;
     TQ3ViewObject			qd3dView;
 }
 
-- (id)qd3dDelegate;
-- (void)setQD3DDelegate:(id)inDelegate;
+//don't retain to avoid cycles
+@property (unsafe_unretained, nullable) id<Quesa3DViewDelegate> qd3dDelegate;
 
-- (TQ3DrawContextObject)drawContext;
-- (TQ3ViewObject)qd3dView;
+@property (readonly, nullable) TQ3DrawContextObject drawContext;
+@property (readonly, nullable) TQ3ViewObject qd3dView;
 
 - (void) createLight:(TQ3ObjectType) lightType withData:(void *)lightData;
 //this shouldn't be called directly, but is here for subclasses to override
@@ -83,10 +87,13 @@
 //	At the moment, KeyUp and KeyDown events are also passed to the qd3dView. I'm not sure
 //	if this is a good idea or not, but they seem useful there.
 //===========================================================================
-@interface NSObject(Quesa3DViewDelegate)
+@protocol Quesa3DViewDelegate <NSObject>
+@optional
 -(void)qd3dViewDidInit:(Quesa3DView*)inView;
 -(void)qd3dViewWillRender:(Quesa3DView*)inView;
 -(void)qd3dViewRenderFrame:(Quesa3DView*)inView;
 -(void)qd3dViewDidRender:(Quesa3DView*)inView;
 -(void)qd3dView:(Quesa3DView*)inView eventOccurred:(NSEvent*)inEvent;
 @end
+
+NS_ASSUME_NONNULL_END

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Development/Projects/Mac/Quesa (Legacy).xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Development/Projects/Mac/Quesa.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SDK/Examples/StereoDemo/StereoDemo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SDK/Examples/HIQuesaView/HIQuesaView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SDK/Examples/Geom Test/Geom Test.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SDK/Examples/Background Test/BackgroundTest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SDK/Extras/Cocoa Example/Quesa3DView/Quesa3DView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SDK/Extras/3DS-FileSupport/Projects/3DS-FileSupport.xcodeproj">
+   </FileRef>
+</Workspace>

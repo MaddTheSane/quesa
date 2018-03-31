@@ -1,13 +1,13 @@
 // Build Locations
-SDKROOT = $(DEVELOPER_DIR)/SDKs/MacOSX10.6.sdk
+SDKROOT = macosx
 
 // Compiler version
-GCC_VERSION = 4.2
+GCC_VERSION =
 GCC_VERSION[arch=ppc] = 4.0
 
 // Search Paths
-FSP_QUESA = "$(SRCROOT)/../../Libraries/Mac/Framework_Universal/Debug"
-FRAMEWORK_SEARCH_PATHS = $(FSP_QUESA) $(SDKROOT)/Library/Frameworks
+FSP_QUESA = "$(SRCROOT)/../../Libraries/Mac/Framework_Modern/Debug"
+FRAMEWORK_SEARCH_PATHS = $(FSP_QUESA) $(SDKROOT)/Library/Frameworks $(HOME)/oldQTFrameworks
 
 // Build Options
 DEBUG_INFORMATION_FORMAT = dwarf
