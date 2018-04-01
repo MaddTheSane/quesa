@@ -96,7 +96,7 @@
 
 - (id)initWithFrame:(NSRect)frameRect
 {
-	[super initWithFrame:frameRect];
+	if (self = [super initWithFrame:frameRect]) {
     quesaView = NULL;
     drawContext = NULL;
 	
@@ -108,6 +108,7 @@
 		selector: @selector(frameChanged:)
 		name: NSViewFrameDidChangeNotification
 		object: self ];
+	}
 
     return self;
 }
