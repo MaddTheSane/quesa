@@ -82,5 +82,5 @@ private:
 	EventHandlerRef		fHandler;
 };
 
-#endif TEventHandler_H_
+#endif //TEventHandler_H_
 

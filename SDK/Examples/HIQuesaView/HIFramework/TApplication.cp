@@ -81,13 +81,13 @@ TApplication::Init(
 							};
 
 	err = RegisterForEvents( GetEventTypeCount( kEvents ), kEvents );
-	require_noerr( err, CantInit );
+	__Require_noErr( err, CantInit );
 
 	err = nib.Init( inNibName );
-	require_noerr( err, CantInit );
+	__Require_noErr( err, CantInit );
 
 	err = nib.SetMenuBar( inMenuBarName );
-	require_noerr( err, CantInit );
+	__Require_noErr( err, CantInit );
 
 CantInit:
 	return err;

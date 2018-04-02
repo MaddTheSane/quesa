@@ -90,7 +90,7 @@ TView::TView(
 	HIViewRef			inView )
 	:	TObject( (HIObjectRef) inView )
 {
-	verify_noerr( AddEventTypesToHandler( GetEventHandler(), GetEventTypeCount( kHIViewEvents ),
+	__Verify_noErr( AddEventTypesToHandler( GetEventHandler(), GetEventTypeCount( kHIViewEvents ),
 			kHIViewEvents ) );
 }
 
@@ -304,7 +304,7 @@ TView::BoundsChanged(
 	const HIRect& 		inOriginalBounds,
 	const HIRect& 		inCurrentBounds )
 {
-	#pragma unused( inOptions, inOriginalBounds, inCurrentBounds, inInvalRgn )
+	#pragma unused( inOptions, inOriginalBounds, inCurrentBounds )
 }
 
 //-----------------------------------------------------------------------------------
@@ -333,7 +333,7 @@ TView::HiliteChanged(
 	ControlPartCode		inOriginalPart,
 	ControlPartCode		inCurrentPart )
 {
-	#pragma unused( inOriginalPart, inCurrentPart, inInvalRgn )
+	#pragma unused( inOriginalPart, inCurrentPart )
 }
 
 //-----------------------------------------------------------------------------------
@@ -558,7 +558,7 @@ TView::HandleEvent(
 				HICommandExtended		command;
 				
 				result = inEvent.GetParameter( kEventParamDirectObject, &command );
-				require_noerr( result, MissingParameter );
+				__Require_noErr( result, MissingParameter );
 				
 				switch ( inEvent.GetKind() )
 				{
@@ -616,7 +616,7 @@ TView::HandleEvent(
 					result = GetData( tag, part, size, &outSize, ptr );
 
 					if ( result == noErr )
-						verify_noerr( inEvent.SetParameter<Size>( kEventParamControlDataBufferSize, typeLongInteger, outSize ) );
+						__Verify_noErr( inEvent.SetParameter<Size>( kEventParamControlDataBufferSize, typeLongInteger, outSize ) );
 					break;
 				
 				case kEventControlSetData:
@@ -803,7 +803,7 @@ TView::HandleEvent(
 					{
 						result = Track( inEvent, &part );
 						if ( result == noErr )
-							verify_noerr( inEvent.SetParameter<ControlPartCode>( kEventParamControlPart, typeControlPartCode, part ) );
+							__Verify_noErr( inEvent.SetParameter<ControlPartCode>( kEventParamControlPart, typeControlPartCode, part ) );
 					}
 					break;
 
@@ -815,8 +815,8 @@ TView::HandleEvent(
 
 						if ( result == noErr )
 						{
-							verify_noerr( inEvent.SetParameter( kEventParamMinimumSize, minSize ) );
-							verify_noerr( inEvent.SetParameter( kEventParamMaximumSize, maxSize ) );
+							__Verify_noErr( inEvent.SetParameter( kEventParamMinimumSize, minSize ) );
+							__Verify_noErr( inEvent.SetParameter( kEventParamMaximumSize, maxSize ) );
 						}
 					}
 					break;
@@ -828,7 +828,7 @@ TView::HandleEvent(
 						ControlPartCode		actualFocus;
 						
 						result = inEvent.GetParameter<ControlPartCode>( kEventParamControlPart, typeControlPartCode, &desiredFocus ); 
-						require_noerr( result, MissingParameter );
+						__Require_noErr( result, MissingParameter );
 						
 						focusEverything = false; // a good default in case the parameter doesn't exist
 
@@ -837,7 +837,7 @@ TView::HandleEvent(
 						result = SetFocusPart( desiredFocus, focusEverything, &actualFocus );
 						
 						if ( result == noErr )
-							verify_noerr( inEvent.SetParameter<ControlPartCode>( kEventParamControlPart, typeControlPartCode, actualFocus ) );
+							__Verify_noErr( inEvent.SetParameter<ControlPartCode>( kEventParamControlPart, typeControlPartCode, actualFocus ) );
 					}
 					break;
 				
@@ -867,16 +867,16 @@ TView::HandleEvent(
 						if ( result == noErr )
 						{
 							result = inEvent.SetParameter( kEventParamImageSize, typeHISize, imageSize );
-							require_noerr( result, MissingParameter );
+							__Require_noErr( result, MissingParameter );
 
 							result = inEvent.SetParameter( kEventParamViewSize, typeHISize, viewSize );
-							require_noerr( result, MissingParameter );
+							__Require_noErr( result, MissingParameter );
 
 							result = inEvent.SetParameter( kEventParamLineSize, typeHISize, lineSize );
-							require_noerr( result, MissingParameter );
+							__Require_noErr( result, MissingParameter );
 
 							result = inEvent.SetParameter( kEventParamOrigin, typeHIPoint, origin );
-							require_noerr( result, MissingParameter );
+							__Require_noErr( result, MissingParameter );
 						}
 					}
 					break;
@@ -886,7 +886,7 @@ TView::HandleEvent(
 						HIPoint	newOrigin;
 
 						result = inEvent.GetParameter( kEventParamOrigin, &newOrigin );
-						require_noerr( result, MissingParameter );
+						__Require_noErr( result, MissingParameter );
 
 						result = ScrollableScrollTo( &newOrigin );
 					}
@@ -930,7 +930,7 @@ void
 TView::SetFrame(
 	const HIRect&			inFrame )
 {
-	verify_noerr( HIViewSetFrame( GetViewRef(), &inFrame ) );
+	__Verify_noErr( HIViewSetFrame( GetViewRef(), &inFrame ) );
 }
 
 //-----------------------------------------------------------------------------------
@@ -942,7 +942,7 @@ TView::Bounds()
 {
 	HIRect		bounds;
 	
-	verify_noerr( HIViewGetBounds( GetViewRef(), &bounds ) );
+	__Verify_noErr( HIViewGetBounds( GetViewRef(), &bounds ) );
 	
 	return bounds;
 }
@@ -954,7 +954,7 @@ TView::Bounds()
 void
 TView::Show()
 {
-	verify_noerr( HIViewSetVisible( GetViewRef(), true ) );
+	__Verify_noErr( HIViewSetVisible( GetViewRef(), true ) );
 }
 
 //-----------------------------------------------------------------------------------
@@ -964,7 +964,7 @@ TView::Show()
 void
 TView::Hide()
 {
-	verify_noerr( HIViewSetVisible( GetViewRef(), false ) );
+	__Verify_noErr( HIViewSetVisible( GetViewRef(), false ) );
 }
 
 //-----------------------------------------------------------------------------------
@@ -1269,7 +1269,7 @@ TView::SendScrollableInfoChanged()
 	EventRef		event;
 
 	err = CreateEvent( NULL, kEventClassScrollable, kEventScrollableInfoChanged, 0, 0, &event );
-	require_noerr( err, CantCreateEvent );
+	__Require_noErr( err, CantCreateEvent );
 
 	err = SendEventToEventTargetWithOptions( event, GetControlEventTarget( HIViewGetSuperview( GetViewRef() ) ), kEventTargetDontPropagate );
 	ReleaseEvent( event );

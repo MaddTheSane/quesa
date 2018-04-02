@@ -281,6 +281,7 @@
 		5572964B206F162A0068DC8D /* Carbon */ = {
 			isa = PBXGroup;
 			children = (
+				55A8E7DF206F0AE8008A8C30 /* OldCarbHeaders.h */,
 				BEC0EC610ECA543C0012BA6C /* QutCarbon.r */,
 				BEDC05B908A5C0FB00FB3A82 /* QutMac.c */,
 				BEDC05BA08A5C0FB00FB3A82 /* QutMac.h */,
@@ -327,7 +328,6 @@
 		BEDC05E508A5C76600FB3A82 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				55A8E7DF206F0AE8008A8C30 /* OldCarbHeaders.h */,
 				32DBCF6D0370B57F00C91783 /* Geom Test_Prefix.pch */,
 			);
 			name = Headers;

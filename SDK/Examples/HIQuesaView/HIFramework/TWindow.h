@@ -179,4 +179,4 @@ private:
 	WindowRef			fWindow;
 };
 
-#endif TWindow_H_
+#endif //TWindow_H_

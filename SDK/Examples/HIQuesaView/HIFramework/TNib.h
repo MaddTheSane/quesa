@@ -81,4 +81,4 @@ private:
 	IBNibRef			fNib;
 };
 
-#endif TNib_H_
+#endif //TNib_H_

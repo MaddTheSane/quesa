@@ -71,7 +71,7 @@ TEventHandler::GetEventHandler()
 {
 	if ( fHandler == NULL )
 	{
-		verify_noerr( ::InstallEventHandler( GetEventTarget(), GetEventHandlerProc(), 0, NULL, this, &fHandler ) );
+		__Verify_noErr( ::InstallEventHandler( GetEventTarget(), GetEventHandlerProc(), 0, NULL, this, &fHandler ) );
 	}
 	
 	return fHandler;

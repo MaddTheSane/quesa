@@ -1,13 +1,15 @@
 // Architectures
-ARCHS = ppc i386
+ARCHS = $(ARCHS_STANDARD_32_BIT)
+MACOSX_DEPLOYMENT_TARGET = 10.9
+
 
 // Build Locations
-SDKROOT = $(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk
+SDKROOT = macosx
 
 // Search Paths
 HEADER_SEARCH_PATHS = ../Qut/Mac ../Qut
-FSP_SYS = $(SDKROOT)/System/Library/Frameworks
-FSP_QUESA = "$(SRCROOT)/../../Libraries/Mac/Framework_Universal/$(CONFIGURATION)"
+FSP_SYS = $(SDKDIR)/System/Library/Frameworks
+FSP_QUESA = "$(SRCROOT)/../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)"
 FRAMEWORK_SEARCH_PATHS = $(FSP_SYS) $(FSP_QUESA)
 
 // Build Options
@@ -28,7 +30,7 @@ COPY_PHASE_STRIP = NO					// Strip Debug Symbols During Copy
 STRIP_INSTALLED_PRODUCT = NO
 
 // Compiler version
-GCC_VERSION = 4.0
+GCC_VERSION = 
 
 // Language
 GCC_PREFIX_HEADER = BackgroundTest_Prefix.pch

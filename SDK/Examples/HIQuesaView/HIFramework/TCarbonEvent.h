@@ -53,23 +53,23 @@ struct InvalidEventParameterType {};
 template <class T> EventParamType EventDataType() throw( InvalidEventParameterType )
 	{ throw InvalidEventParameterType(); return 0; }
 
-template <> inline EventParamType EventDataType<WindowRef>() { return typeWindowRef; }
-template <> inline EventParamType EventDataType<ControlRef>() { return typeControlRef; }
-template <> inline EventParamType EventDataType<MenuRef>() { return typeMenuRef; }
-template <> inline EventParamType EventDataType<DragRef>() { return typeDragRef; }
+template <> inline EventParamType EventDataType<WindowRef>() throw(InvalidEventParameterType) { return typeWindowRef; }
+template <> inline EventParamType EventDataType<ControlRef>() throw(InvalidEventParameterType) { return typeControlRef; }
+template <> inline EventParamType EventDataType<MenuRef>() throw(InvalidEventParameterType) { return typeMenuRef; }
+template <> inline EventParamType EventDataType<DragRef>() throw(InvalidEventParameterType) { return typeDragRef; }
 
-template <> inline EventParamType EventDataType<HIPoint>() { return typeHIPoint; }
-template <> inline EventParamType EventDataType<HISize>() { return typeHISize; }
-template <> inline EventParamType EventDataType<HIRect>() { return typeHIRect; }
-template <> inline EventParamType EventDataType<Point>() { return typeQDPoint; }
-template <> inline EventParamType EventDataType<Rect>() { return typeQDRectangle; }
-template <> inline EventParamType EventDataType<RgnHandle>() { return typeQDRgnHandle; }
+template <> inline EventParamType EventDataType<HIPoint>() throw(InvalidEventParameterType) { return typeHIPoint; }
+template <> inline EventParamType EventDataType<HISize>() throw(InvalidEventParameterType) { return typeHISize; }
+template <> inline EventParamType EventDataType<HIRect>() throw(InvalidEventParameterType) { return typeHIRect; }
+template <> inline EventParamType EventDataType<Point>() throw(InvalidEventParameterType) { return typeQDPoint; }
+template <> inline EventParamType EventDataType<Rect>() throw(InvalidEventParameterType) { return typeQDRectangle; }
+template <> inline EventParamType EventDataType<RgnHandle>() throw(InvalidEventParameterType) { return typeQDRgnHandle; }
 
-template <> inline EventParamType EventDataType<Boolean>() { return typeBoolean; }
-template <> inline EventParamType EventDataType<UInt32>() { return typeUInt32; }
+template <> inline EventParamType EventDataType<Boolean>() throw(InvalidEventParameterType) { return typeBoolean; }
+template <> inline EventParamType EventDataType<UInt32>() throw(InvalidEventParameterType) { return typeUInt32; }
 
-template <> inline EventParamType EventDataType<HICommand>() { return typeHICommand; }
-template <> inline EventParamType EventDataType<HICommandExtended>() { return typeHICommand; }
+template <> inline EventParamType EventDataType<HICommand>() throw(InvalidEventParameterType) { return typeHICommand; }
+template <> inline EventParamType EventDataType<HICommandExtended>() throw(InvalidEventParameterType) { return typeHICommand; }
 
 class TCarbonEvent
 {
@@ -268,7 +268,7 @@ public:
 	{
 		T			outValue;
 		
-		verify_noerr( GetParameter( inName, EventDataType<T>(), sizeof( T ), &outValue ) );
+		__Verify_noErr( GetParameter( inName, EventDataType<T>(), sizeof( T ), &outValue ) );
 
 		return outValue;
 	}
@@ -277,7 +277,7 @@ public:
 		EventParamName	inName,
 		const T&		inValue )
 	{
-		verify_noerr( SetParameter( inName, EventDataType<T>(), sizeof( T ), &inValue ) );
+		__Verify_noErr( SetParameter( inName, EventDataType<T>(), sizeof( T ), &inValue ) );
 	}
 
 	template <class T> T GetParameter(
@@ -285,7 +285,7 @@ public:
 	{
 		T			outValue;
 		
-		verify_noerr( GetParameter( inName, inType, sizeof( T ), &outValue ) );
+		__Verify_noErr( GetParameter( inName, inType, sizeof( T ), &outValue ) );
 
 		return outValue;
 	}

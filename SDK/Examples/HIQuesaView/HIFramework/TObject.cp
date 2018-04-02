@@ -127,7 +127,7 @@ TObject::CreateInitializationEvent()
 	EventRef		event;
 
 	result = CreateEvent( NULL, kEventClassHIObject, kEventHIObjectInitialize, 0, 0, &event );
-	require_noerr_action( result, CantCreateEvent, event = NULL );
+	__Require_noErr_Action( result, CantCreateEvent, event = NULL );
 		
 CantCreateEvent:
 	return event;
@@ -168,7 +168,7 @@ TObject::ObjectEventHandler(
 			{
 				case kEventHIObjectConstruct:
 				{
-					require_noerr_action( err, ParameterMissing, result = err );
+					__Require_noErr_Action( err, ParameterMissing, result = err );
 					
 					// on entry for our construct event, we're passed the
 					// creation proc we registered with for this class.
@@ -233,7 +233,7 @@ TObject::HandleEvent(
 			UInt64				identifier;
 
 			result = inEvent.GetParameter<AXUIElementRef>( kEventParamAccessibleObject, typeCFTypeRef, &element );
-			require_noerr( result, ParameterMissing );
+			__Require_noErr( result, ParameterMissing );
 			
 			AXUIElementGetIdentifier( element, &identifier );
 
@@ -245,7 +245,7 @@ TObject::HandleEvent(
 					HIPoint		where;
 
 					result = inEvent.GetParameter<HIPoint>( kEventParamMouseLocation, typeHIPoint, &where );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 
 					result = CopyAccessibleChildAtPoint( inCallRef, inEvent, element, identifier, where, &child );
 					if ( result == noErr && child != NULL )
@@ -275,7 +275,7 @@ TObject::HandleEvent(
 
 					result = inEvent.GetParameter<CFMutableArrayRef>( kEventParamAccessibleAttributeNames,
 							typeCFMutableArrayRef, &namesArray );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 
 					result = GetAccessibleAttributeNames( inCallRef, inEvent, element, identifier, namesArray );
 					break;
@@ -287,7 +287,7 @@ TObject::HandleEvent(
 
 					result = inEvent.GetParameter<CFMutableArrayRef>( kEventParamAccessibleAttributeNames,
 							typeCFMutableArrayRef, &namesArray );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 
 					result = GetAccessibleParameterizedAttributeNames( inCallRef, inEvent, element, identifier, namesArray );
 					break;
@@ -299,7 +299,7 @@ TObject::HandleEvent(
 
 					result = inEvent.GetParameter<CFStringRef>( kEventParamAccessibleAttributeName,
 						typeCFStringRef, &attribute );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 
 					result = GetAccessibleNamedAttribute( inCallRef, inEvent, element, identifier, attribute );
 					break;
@@ -311,7 +311,7 @@ TObject::HandleEvent(
 
 					result = inEvent.GetParameter<CFStringRef>( kEventParamAccessibleAttributeName,
 						typeCFStringRef, &attribute );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 
 					result = SetAccessibleNamedAttribute( inCallRef, inEvent, element, identifier, attribute );
 					break;
@@ -324,7 +324,7 @@ TObject::HandleEvent(
 					
 					result = inEvent.GetParameter<CFStringRef>( kEventParamAccessibleAttributeName,
 						typeCFStringRef, &attribute );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 
 					result = IsAccessibleNamedAttributeSettable( inCallRef, inEvent, element, identifier, attribute, &isSettable );
 
@@ -338,7 +338,7 @@ TObject::HandleEvent(
 
 					result = inEvent.GetParameter<CFMutableArrayRef>( kEventParamAccessibleActionNames,
 							typeCFMutableArrayRef, &array );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 
 					result = GetAccessibleActionNames( inCallRef, inEvent, element, identifier, array );
 					break;
@@ -352,10 +352,10 @@ TObject::HandleEvent(
 					
 					result = inEvent.GetParameter<CFStringRef>( kEventParamAccessibleActionName,
 						typeCFStringRef, &action );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 					result = inEvent.GetParameter<CFMutableStringRef>( kEventParamAccessibleActionDescription,
 						typeCFMutableStringRef, &desc );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 
 					result = CopyAccessibleNamedActionDescription( inCallRef, inEvent, element, identifier, action, &selfDesc );
 
@@ -370,7 +370,7 @@ TObject::HandleEvent(
 					
 					result = inEvent.GetParameter<CFStringRef>( kEventParamAccessibleActionName,
 						typeCFStringRef, &action );
-					require_noerr( result, ParameterMissing );
+					__Require_noErr( result, ParameterMissing );
 
 					result = PerformAccessibleNamedAction( inCallRef, inEvent, element, identifier, action );
 					break;

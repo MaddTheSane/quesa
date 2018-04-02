@@ -67,6 +67,7 @@
 
 #if QUT_MAC_CARBON_EVENTS
 	#include <Carbon/Carbon.h>
+	#include "OldCarbHeaders.h"
 #endif
 
 

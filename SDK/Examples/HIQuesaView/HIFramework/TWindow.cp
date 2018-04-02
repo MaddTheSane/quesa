@@ -110,12 +110,12 @@ TWindow::Init(
 							};
 	TWindow*			tWindow;
 
-	require_action( inWindow != NULL, InvalidWindow, err = paramErr );
+	__Require_Action( inWindow != NULL, InvalidWindow, err = paramErr );
 
 	fWindow = inWindow;
 
 	err = RegisterForEvents( GetEventTypeCount( kEvents ), kEvents );
-	require_noerr( err, CantRegisterForEvents );
+	__Require_noErr( err, CantRegisterForEvents );
 	
 	tWindow = this;
 	err = SetWindowProperty( inWindow, 'hifr', 'twin', sizeof( TWindow* ), &tWindow );
@@ -139,10 +139,10 @@ TWindow::Init(
 	WindowRef			window;
 
 	err = nib.Init( inNibName );
-	require_noerr( err, CantInitNib );
+	__Require_noErr( err, CantInitNib );
 
 	err = nib.CreateWindow( inWindowName, &window );
-	require_noerr( err, CantCreateWindow );
+	__Require_noErr( err, CantCreateWindow );
 
 	err = Init( window );
 
@@ -165,7 +165,7 @@ TWindow::Init(
 	WindowRef			window;
 
 	err = CreateNewWindow( inClass, inAttributes, &inBounds, &window );
-	require_noerr( err, CantCreateWindow );
+	__Require_noErr( err, CantCreateWindow );
 
 	err = Init( window );
 
@@ -667,7 +667,7 @@ TWindow::EnableView(
 	HIViewRef				view;
 
 	view = GetView( inID );
-	require_action( view != NULL, CantGetView, err = errUnknownControl );
+	__Require_Action( view != NULL, CantGetView, err = errUnknownControl );
 
 	EnableControl( view );
 
@@ -704,7 +704,7 @@ TWindow::DisableView(
 	HIViewRef				view;
 
 	view = GetView( inID );
-	require_action( view != NULL, CantGetView, err = errUnknownControl );
+	__Require_Action( view != NULL, CantGetView, err = errUnknownControl );
 
 	DisableControl( view );
 
@@ -741,7 +741,7 @@ TWindow::ShowView(
 	HIViewRef				view;
 
 	view = GetView( inID );
-	require_action( view != NULL, CantGetView, err = errUnknownControl );
+	__Require_Action( view != NULL, CantGetView, err = errUnknownControl );
 
 	ShowControl( view );
 
@@ -778,7 +778,7 @@ TWindow::HideView(
 	OSStatus				err = noErr;
 
 	view = GetView( inID );
-	require_action( view != NULL, CantGetView, err = errUnknownControl );
+	__Require_Action( view != NULL, CantGetView, err = errUnknownControl );
 
 	HideControl( view );
 
@@ -812,6 +812,6 @@ TWindow::GetTWindowFromWindowRef(
 	WindowRef				inWindowRef )
 {
 	TWindow*				tWindow = NULL;
-	verify_noerr( GetWindowProperty( inWindowRef, 'hifr', 'twin', sizeof( TWindow* ), NULL, &tWindow ) );
+	__Verify_noErr( GetWindowProperty( inWindowRef, 'hifr', 'twin', sizeof( TWindow* ), NULL, &tWindow ) );
 	return tWindow;
 }

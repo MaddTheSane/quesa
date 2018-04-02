@@ -66,7 +66,7 @@ TNib::TNib(
 	CFStringRef			inNibName )
 {
 	fNib = NULL;
-	verify_noerr( Init( inNibName ) );
+	__Verify_noErr( Init( inNibName ) );
 }
 
 //-----------------------------------------------------------------------------------
@@ -77,7 +77,7 @@ TNib::TNib(
 	IBNibRef			inNib )
 {
 	fNib = NULL;
-	verify_noerr( Init( inNib ) );
+	__Verify_noErr( Init( inNib ) );
 }
 
 //-----------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ TNib::Init(
 	OSStatus			err;
 
 	err = CreateNibReference( inNibName, &nibRef );
-	require_noerr( err, CantCreateNibRef );
+	__Require_noErr( err, CantCreateNibRef );
 
 	err = Init( nibRef );
 
