@@ -220,7 +220,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE1352A30C3C14F400B20B60 /* Build configuration list for PBXNativeTarget "Quesa3DView" */;
 			buildPhases = (
-				BE1353900C3C39E400B20B60 /* Make Symbolic Links */,
 				BE1352910C3C14F400B20B60 /* Headers */,
 				BE1352960C3C14F400B20B60 /* Resources */,
 				BE1353040C3C17E700B20B60 /* Copy Private Frameworks */,
@@ -299,23 +298,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		BE1353900C3C39E400B20B60 /* Make Symbolic Links */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Make Symbolic Links";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$CONFIGURATION_BUILD_DIR\"\n\n# Make a symbolic link in the configuration build directory, pointing to the right version of Quesa.\necho \"ln -h -f -s \" \"../../../../../Libraries/Mac/Framework_Modern/$CONFIGURATION/Quesa.framework\" Quesa.framework\nln -h -f -s \"../../../../../Libraries/Mac/Framework_Modern/$CONFIGURATION/Quesa.framework/\" Quesa.framework\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE1352990C3C14F400B20B60 /* Sources */ = {

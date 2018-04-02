@@ -11,7 +11,7 @@ MACOSX_DEPLOYMENT_TARGET = 10.9
 GCC_VERSION =
 
 // Search Paths
-FSP_QUESA = "$(SRCROOT)/../../../Libraries/Mac/Framework_Modern/Debug"
+FSP_QUESA = "$(SRCROOT)/../../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)"
 FRAMEWORK_SEARCH_PATHS = $(FSP_QUESA) $(SDKROOT)/Library/Frameworks
 
 // Build Options

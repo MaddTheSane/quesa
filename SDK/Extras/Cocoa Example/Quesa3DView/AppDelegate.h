@@ -106,7 +106,7 @@
 - (void) setYRotation: (float) angleDegrees;
 
 - (float) zRotation;
-- (void) setXRotation: (float) angleDegrees;
+- (void) setZRotation: (float) angleDegrees;
 
 - (int) illuminationType;
 - (void) setIlluminationType: (int) illumCode;

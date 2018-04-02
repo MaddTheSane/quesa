@@ -880,6 +880,7 @@ extern OSStatus SyncCGContextOriginWithPort(CGContextRef, CGrafPtr);
 extern OSStatus CreateCGContextForPort(CGrafPtr, CGContextRef *);
 
 //misc.
+extern void NoPurgePixels(PixMapHandle);
 extern GDHandle DMGetFirstScreenDevice(Boolean);
 extern GDHandle DMGetNextScreenDevice(GDHandle, Boolean);
 extern OSErr DMGetDisplayIDByGDevice(GDHandle, DisplayIDType *, Boolean);

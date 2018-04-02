@@ -102,15 +102,15 @@ static TQ3ShaderObject createTextureFromFile(NSString * fileName)
 
 	if (theImage)
 	{
-		int	bitsPPixel, theWidth, theHeight, rowBytes;
+		NSInteger	bitsPPixel, theWidth, theHeight, rowBytes;
 		bitsPPixel	= [theImage bitsPerPixel];
 		rowBytes	= [theImage bytesPerRow];
 		theWidth	= [theImage pixelsWide];
 		theHeight	= [theImage pixelsHigh];
 
 
-		NSLog(@"createTextureFromFile: imageRepWithContentsOfFile OK: width = %d, height = %d,  %d bpp, %d rowBytes\n",
-		theWidth, theHeight, bitsPPixel, rowBytes);
+		NSLog(@"createTextureFromFile: imageRepWithContentsOfFile OK: width = %ld, height = %ld,  %ld bpp, %ld rowBytes\n",
+		(long)theWidth, (long)theHeight, (long)bitsPPixel, (long)rowBytes);
 
 
 		TQ3TextureObject	qd3dTextureObject;	
@@ -127,14 +127,14 @@ static TQ3ShaderObject createTextureFromFile(NSString * fileName)
 		}
 
 
-		qd3dMemoryStorage	= Q3MemoryStorage_New([theImage bitmapData], theHeight * rowBytes);
+		qd3dMemoryStorage	= Q3MemoryStorage_New([theImage bitmapData], (TQ3Uns32)(theHeight * rowBytes));
 		if (qd3dMemoryStorage)
 		{
 			qd3dPixMap.image        = qd3dMemoryStorage;
-			qd3dPixMap.width	= theWidth;
-			qd3dPixMap.height	= theHeight;
-			qd3dPixMap.rowBytes	= rowBytes;
-			qd3dPixMap.pixelSize	= bitsPPixel;
+			qd3dPixMap.width	= (TQ3Uns32)theWidth;
+			qd3dPixMap.height	= (TQ3Uns32)theHeight;
+			qd3dPixMap.rowBytes	= (TQ3Uns32)rowBytes;
+			qd3dPixMap.pixelSize	= (TQ3Uns32)bitsPPixel;
 			qd3dPixMap.pixelType	= pixelType;
 			qd3dPixMap.bitOrder	= kQ3EndianLittle;
 			qd3dPixMap.byteOrder	= kQ3EndianLittle;
@@ -771,14 +771,14 @@ static void ApplyTextureToShape( TQ3ShaderObject inTextureShader, TQ3ShapeObject
 		^(NSInteger result)
 		{
 			if ( (result == NSFileHandlingPanelOKButton) &&
-				(mSceneGeometry != NULL) )
+				(self->mSceneGeometry != NULL) )
 			{
 				NSURL* theURL = [[panel URLs] objectAtIndex: 0];
 				TQ3ShaderObject txShader = createTextureFromFile( [theURL path] );
 			
 				if (txShader != NULL)
 				{
-					ApplyTextureToShape( txShader, mSceneGeometry );
+					ApplyTextureToShape( txShader, self->mSceneGeometry );
 					
 					Q3Object_Dispose( txShader );
 				}
@@ -805,11 +805,11 @@ static void ApplyTextureToShape( TQ3ShaderObject inTextureShader, TQ3ShapeObject
 				TQ3Object theObject = createObjectFromFile( [theURL path] );
 				if (theObject != NULL)
 				{
-					if (mSceneGeometry != NULL)
+					if (self->mSceneGeometry != NULL)
 					{
-						Q3Object_Dispose(mSceneGeometry);
+						Q3Object_Dispose(self->mSceneGeometry);
 					}
-					mSceneGeometry = theObject;
+					self->mSceneGeometry = theObject;
 				}
 			}
 		}];
@@ -825,7 +825,7 @@ static void ApplyTextureToShape( TQ3ShaderObject inTextureShader, TQ3ShapeObject
 			if (result == NSFileHandlingPanelOKButton)
 			{
 				NSURL* theURL = [panel URL];
-				SaveObjectToFile( mSceneGeometry, theURL, [quesa3dView qd3dView] );
+				SaveObjectToFile( self->mSceneGeometry, theURL, [self->quesa3dView qd3dView] );
 			}
 		}];
 }
@@ -836,7 +836,7 @@ static void ApplyTextureToShape( TQ3ShaderObject inTextureShader, TQ3ShapeObject
 
 -(void)setGeometryFromTag:(id)sender
 {
-  int tagVal = [[sender selectedItem]tag];
+  NSInteger tagVal = [[sender selectedItem]tag];
   TQ3GeometryObject theGeom = NULL;
   
   switch(tagVal)
