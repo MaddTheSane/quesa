@@ -59,12 +59,6 @@ framework module Quesa {
 		export *
 	}
 	
-	explicit module CQ3ObjectRef_Gets {
-		requires cplusplus
-		header "CQ3ObjectRef_Gets.h"
-		export *
-	}
-	
 	explicit module QuesaCustomElements {
 		header "QuesaCustomElements.h"
 		export *
@@ -100,6 +94,12 @@ framework module Quesa {
 		requires cplusplus
 		header "CQ3ObjectRef.h"
 		export *
+		
+		explicit module Gets {
+			requires cplusplus
+			header "CQ3ObjectRef_Gets.h"
+			export *
+		}
 	}
 	
 	explicit module QuesaRenderer {

@@ -216,6 +216,9 @@
 			#define	Q3_EXTERN_API_C(_type)		__attribute__((visibility("default"))) _type
 		#endif
     #endif
+	#define Q3DENUMSIZED(__x) CF_ENUM(__x)
+#else
+	#define Q3DENUMSIZED(__x) enum
 #endif // QUESA_OS_MACINTOSH
 
 
@@ -591,7 +594,7 @@ typedef enum {
 
 
 // Method types
-enum {
+Q3DENUMSIZED(TQ3ObjectType) {
     kQ3XMethodTypeObjectUnregister              = Q3_METHOD_TYPE('u', 'n', 'r', 'g'),
     kQ3XMethodTypeObjectIsDrawable              = Q3_METHOD_TYPE('i', 's', 'd', 'r')
 };
@@ -603,7 +606,7 @@ enum {
 	@abstract	Type codes of Quesa object classes.
 	@discussion	These values should be considered to be of type TQ3ObjectType.
 */
-enum {
+Q3DENUMSIZED(TQ3ObjectType) {
     kQ3ObjectTypeInvalid                        = ((TQ3ObjectType) 0),
     kQ3ObjectTypeView                           = Q3_OBJECT_TYPE('v', 'i', 'e', 'w'),
     kQ3ObjectTypeViewer                         = Q3_OBJECT_TYPE('v', 'w', 'e', 'r'),
