@@ -7,14 +7,14 @@ Quesa acts as a scene-graph while using OpenGL for rendering. In principle it co
 
 Also see the [summary page at SourceForge](http://quesa.sourceforge.net/) for another view of Quesa resources.
 
-##What platforms does Quesa support?
+## What platforms does Quesa support?
 
 Quesa currently supports Mac OS 8/9, Mac OS X, Linux, and Windows. Images of Quesa running on various platforms can be found on [the screenshots page](http://quesa.sourceforge.net/info/screenshots.html).
 
-##How do you pronounce Quesa?
+## How do you pronounce Quesa?
 
 Quesa is pronounced kes-ah. Think Quesadilla, without the dia.
 
-##SourceForge
+## SourceForge
 
 This is a read-only git mirror of the [official svn repository](http://quesa.sourceforge.net/).
