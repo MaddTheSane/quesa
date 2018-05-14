@@ -297,12 +297,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FSP_SYS)",
 					"$(FSP_QUESA)",
-					"$(HOME)/oldQTFrameworks",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
 					../../../Development/Source/Core/Viewer,
 					"$(inherited)",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 			};
 			name = Debug;
@@ -314,7 +315,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FSP_SYS)",
 					"$(FSP_QUESA)",
-					"$(HOME)/oldQTFrameworks",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -322,6 +323,7 @@
 				HEADER_SEARCH_PATHS = (
 					../../../Development/Source/Core/Viewer,
 					"$(inherited)",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 			};
 			name = Release;

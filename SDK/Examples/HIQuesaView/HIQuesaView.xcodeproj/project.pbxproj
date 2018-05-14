@@ -83,7 +83,6 @@
 		5048396D09E3307300765E4B /* HIQuesaViewProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = HIQuesaViewProj.xcconfig; sourceTree = "<group>"; };
 		5048396E09E3307300765E4B /* HIQuesaViewTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = HIQuesaViewTarget.xcconfig; sourceTree = "<group>"; };
 		508344B209E5C41E0093A071 /* HIQuesaView Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HIQuesaView Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		55C977172072CBE40063E5C6 /* OldCarbHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OldCarbHeaders.h; path = ../Qut/Mac/OldCarbHeaders.h; sourceTree = "<group>"; };
 		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE1355DC0C40BA3000B20B60 /* Quesa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quesa.xcodeproj; path = ../../../Development/Projects/Mac/Quesa.xcodeproj; sourceTree = SOURCE_ROOT; };
 		BE1C6DC50B644F75002AD7F3 /* HIQuesaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIQuesaView.h; sourceTree = "<group>"; };
@@ -140,7 +139,6 @@
 		20286C2AFDCF999611CA2CEA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				55C977172072CBE40063E5C6 /* OldCarbHeaders.h */,
 				32DBCF6D0370B57F00C91783 /* HIQuesaView_Prefix.pch */,
 				20286C2BFDCF999611CA2CEA /* main.cp */,
 				BE392A3F0B6C435600A351AC /* MainWindow.h */,
@@ -373,7 +371,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(HOME)/oldQTFrameworks",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 				);
@@ -381,6 +379,7 @@
 				HEADER_SEARCH_PATHS = (
 					../../../Development/Source/Core/Viewer,
 					"$(inherited)",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 			};
 			name = Debug;
@@ -392,7 +391,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
 				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(HOME)/oldQTFrameworks",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 				);
@@ -400,6 +399,7 @@
 				HEADER_SEARCH_PATHS = (
 					../../../Development/Source/Core/Viewer,
 					"$(inherited)",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;

@@ -379,7 +379,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(HOME)/oldQTFrameworks",
+					"\"$(PROJECT_DIR)/../../../../Development/Projects/Mac/oldMacHeaders/\"",
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.Quesa.3DS-Support";
@@ -433,7 +433,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(HOME)/oldQTFrameworks",
+					"\"$(PROJECT_DIR)/../../../../Development/Projects/Mac/oldMacHeaders/\"",
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.Quesa.3DS-Support";

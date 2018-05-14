@@ -337,7 +337,7 @@
 /* Begin PBXFileReference section */
 		559E68B8206F83AC00E5CEA2 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = ../../../../../oldQTFrameworks/QuickTime.framework; sourceTree = SOURCE_ROOT; };
 		559E68BA206F851300E5CEA2 /* Quesa.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = Quesa.modulemap; sourceTree = SOURCE_ROOT; };
-		55A8E79D206EE590008A8C30 /* OldCarbHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldCarbHeaders.h; sourceTree = "<group>"; };
+		55A8E79D206EE590008A8C30 /* OldCarbHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OldCarbHeaders.h; path = ../../../Projects/Mac/oldMacHeaders/OldCarbHeaders.h; sourceTree = "<group>"; };
 		8D07F2C80486CC7A007CD1D0 /* Quesa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quesa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3A7B85055E63B100CA83BE /* E3Geometry.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; path = E3Geometry.c; sourceTree = "<group>"; };
 		AB3A7B86055E63B100CA83BE /* E3Geometry.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = E3Geometry.h; sourceTree = "<group>"; };
@@ -1708,7 +1708,7 @@
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(HOME)/oldQTFrameworks";
+				FRAMEWORK_SEARCH_PATHS = oldMacHeaders;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"Q3_EXPORT_SYMBOLS=1",
@@ -1735,7 +1735,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				DEFINES_MODULE = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(HOME)/oldQTFrameworks";
+				FRAMEWORK_SEARCH_PATHS = oldMacHeaders;
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=i386]" = (
 					"$(inherited)",
 					"Q3_EXPORT_SYMBOLS=1",

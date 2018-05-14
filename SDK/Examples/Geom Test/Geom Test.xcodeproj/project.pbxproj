@@ -122,7 +122,6 @@
 		55729646206F150C0068DC8D /* Geom_Test_Cocoa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Geom_Test_Cocoa.entitlements; sourceTree = "<group>"; };
 		5572964D206F16620068DC8D /* Qut.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Qut.xib; sourceTree = "<group>"; };
 		55A8E7D2206F09DA008A8C30 /* Quesa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quesa.xcodeproj; path = ../../../Development/Projects/Mac/Quesa.xcodeproj; sourceTree = "<group>"; };
-		55A8E7DF206F0AE8008A8C30 /* OldCarbHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OldCarbHeaders.h; sourceTree = "<group>"; };
 		8D0C4E970486CD37000505A6 /* Geom Test Univ D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geom Test Univ D.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0402A40B7FB6BB00CC26D5 /* VRML-Reader.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "VRML-Reader.xcodeproj"; path = "../../Extras/VRML Reader/Projects/VRML-Reader.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		BE06F70E08C5593A003DD37B /* XCode-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "XCode-Info.plist"; sourceTree = "<group>"; };
@@ -281,7 +280,6 @@
 		5572964B206F162A0068DC8D /* Carbon */ = {
 			isa = PBXGroup;
 			children = (
-				55A8E7DF206F0AE8008A8C30 /* OldCarbHeaders.h */,
 				BEC0EC610ECA543C0012BA6C /* QutCarbon.r */,
 				BEDC05B908A5C0FB00FB3A82 /* QutMac.c */,
 				BEDC05BA08A5C0FB00FB3A82 /* QutMac.h */,
@@ -697,12 +695,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)\"",
-					"$(HOME)/oldQTFrameworks",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					../Qut/Mac,
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				SDKROOT = macosx;
 			};
@@ -715,12 +714,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)\"",
-					"$(HOME)/oldQTFrameworks",
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					../Qut/Mac,
+					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				SDKROOT = macosx;
 			};
