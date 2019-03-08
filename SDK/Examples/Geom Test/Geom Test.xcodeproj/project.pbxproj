@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550B323220A97C3B00E88B48 /* QutCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 550B322E20A97BB100E88B48 /* QutCocoa.m */; };
 		5572963D206F150B0068DC8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5572963C206F150B0068DC8D /* AppDelegate.m */; };
 		5572963F206F150C0068DC8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572963E206F150C0068DC8D /* Assets.xcassets */; };
 		55729645206F150C0068DC8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55729644206F150C0068DC8D /* main.m */; };
@@ -113,6 +114,9 @@
 
 /* Begin PBXFileReference section */
 		32DBCF6D0370B57F00C91783 /* Geom Test_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Geom Test_Prefix.pch"; sourceTree = "<group>"; };
+		550B322C20A97BB100E88B48 /* Qut Prefix Cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Qut Prefix Cocoa.h"; sourceTree = "<group>"; };
+		550B322E20A97BB100E88B48 /* QutCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QutCocoa.m; sourceTree = "<group>"; };
+		550B322F20A97BB100E88B48 /* QutCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QutCocoa.h; sourceTree = "<group>"; };
 		55729639206F150B0068DC8D /* Geom Test Cocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geom Test Cocoa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5572963B206F150B0068DC8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5572963C206F150B0068DC8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -291,6 +295,9 @@
 		5572964C206F164A0068DC8D /* Cocoa */ = {
 			isa = PBXGroup;
 			children = (
+				550B322C20A97BB100E88B48 /* Qut Prefix Cocoa.h */,
+				550B322E20A97BB100E88B48 /* QutCocoa.m */,
+				550B322F20A97BB100E88B48 /* QutCocoa.h */,
 				5572964D206F16620068DC8D /* Qut.xib */,
 			);
 			name = Cocoa;
@@ -520,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55729645206F150C0068DC8D /* main.m in Sources */,
+				550B323220A97C3B00E88B48 /* QutCocoa.m in Sources */,
 				5572963D206F150B0068DC8D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
