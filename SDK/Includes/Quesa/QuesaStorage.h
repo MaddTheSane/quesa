@@ -1,5 +1,9 @@
 /*! @header QuesaStorage.h
         Declares the Quesa storage objects.
+          
+	@ignore	_Nullable
+	@ignore _Nonnull
+	@ignore	_Null_unspecified
  */
 /*  NAME:
         QuesaStorage.h
@@ -8,7 +12,7 @@
         Quesa public header.
 
     COPYRIGHT:
-        Copyright (c) 1999-2013, Quesa Developers. All rights reserved.
+        Copyright (c) 1999-2018, Quesa Developers. All rights reserved.
 
         For the current release of Quesa, please see:
 
@@ -104,7 +108,7 @@ extern "C" {
  */
 Q3_EXTERN_API_C ( TQ3ObjectType  )
 Q3Storage_GetType (
-    TQ3StorageObject              storage
+    TQ3StorageObject _Nonnull             storage
 );
 
 
@@ -125,8 +129,8 @@ Q3Storage_GetType (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3Storage_GetSize (
-    TQ3StorageObject              storage,
-    TQ3Uns32                      *size
+    TQ3StorageObject _Nonnull             storage,
+    TQ3Uns32                      * _Nonnull size
 );
 
 
@@ -150,11 +154,11 @@ Q3Storage_GetSize (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3Storage_GetData (
-    TQ3StorageObject              storage,
+    TQ3StorageObject _Nonnull             storage,
     TQ3Uns32                      offset,
     TQ3Uns32                      dataSize,
-    unsigned char                 *data,
-    TQ3Uns32                      *sizeRead
+    unsigned char                 * _Nonnull data,
+    TQ3Uns32                      * _Nonnull sizeRead
 );
 
 
@@ -179,11 +183,11 @@ Q3Storage_GetData (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3Storage_SetData (
-    TQ3StorageObject              storage,
+    TQ3StorageObject _Nonnull             storage,
     TQ3Uns32                      offset,
     TQ3Uns32                      dataSize,
-    const unsigned char           *data,
-    TQ3Uns32                      *sizeWritten
+    const unsigned char           * _Nonnull data,
+    TQ3Uns32                      * _Nonnull sizeWritten
 );
 
 
@@ -206,7 +210,7 @@ Q3Storage_SetData (
  */
 Q3_EXTERN_API_C ( TQ3ObjectType  )
 Q3MemoryStorage_GetType (
-    TQ3StorageObject              storage
+    TQ3StorageObject _Nonnull             storage
 );
 
 
@@ -221,17 +225,17 @@ Q3MemoryStorage_GetType (
  *		internally by Quesa.  If you pass a buffer of data, that data will be
  *		copied to the storage object's private memory
  *
- *  @param buffer           Pointer to a buffer in memory, or NULL.
+ *  @param buffer           Pointer to a buffer in memory, or nullptr.
  *  @param validSize        Number of bytes of data in the buffer.
- *							If you passed NULL for the buffer, this number serves
+ *							If you passed nullptr for the buffer, this number serves
  *							as the initial size and grow size of the internally
- *							allocated buffer.  If you passed NULL for buffer and
+ *							allocated buffer.  If you passed nullptr for buffer and
  *							0 for validSize, then Quesa uses a default grow size.
  *  @result                 The new storage object.
  */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3MemoryStorage_New (
-    const unsigned char           *buffer,
+    const unsigned char           * _Nullable buffer,
     TQ3Uns32                      validSize
 );
 
@@ -255,9 +259,9 @@ Q3MemoryStorage_New (
 	@param		bufferSize	Allocated size of the buffer.
 	@result		The new storage object.
 */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3MemoryStorage_NewNoCopy(
-    unsigned char                 *buffer,
+    unsigned char                 * _Nonnull buffer,
     TQ3Uns32                      validSize,
     TQ3Uns32                      bufferSize
 );
@@ -276,15 +280,15 @@ Q3MemoryStorage_NewNoCopy(
  *		or Q3MemoryStorage_NewBuffer), it will own its own memory afterward.
  *
  *  @param storage          The storage object.
- *  @param buffer           Pointer to a buffer of data, or NULL.
+ *  @param buffer           Pointer to a buffer of data, or nullptr.
  *  @param validSize        Number of bytes to be copied from the buffer to the
- *							storage, or initial memory size if buffer was NULL.
+ *							storage, or initial memory size if buffer was nullptr.
  *  @result                 Success or failure of the operation.
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3MemoryStorage_Set (
-    TQ3StorageObject              storage,
-    const unsigned char           *buffer,
+    TQ3StorageObject _Nonnull             storage,
+    const unsigned char           * _Nullable buffer,
     TQ3Uns32                      validSize
 );
 
@@ -299,16 +303,16 @@ Q3MemoryStorage_Set (
  *      Creates a memory storage object using a given buffer rather than by
  *		allocating Quesa memory.
  *
- *  @param buffer           Pointer to a buffer of data, or NULL.
+ *  @param buffer           Pointer to a buffer of data, or nullptr.
  *  @param validSize        Number of bytes of valid data in the provided buffer,
- *							or if buffer was NULL, the initial size and grow
+ *							or if buffer was nullptr, the initial size and grow
  *							size of an internally-allocated buffer.
  *  @param bufferSize       Size in bytes of the buffer.
  *  @result                 The new storage object.
  */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3MemoryStorage_NewBuffer (
-    unsigned char                 *buffer,
+    unsigned char                 * _Nullable buffer,
     TQ3Uns32                      validSize,
     TQ3Uns32                      bufferSize
 );
@@ -325,17 +329,17 @@ Q3MemoryStorage_NewBuffer (
  *		given buffer.
  *
  *  @param storage          The storage object.
- *  @param buffer           Pointer to a buffer of data, or NULL.
+ *  @param buffer           Pointer to a buffer of data, or nullptr.
  *  @param validSize        Number of valid bytes in the buffer, or
- *							if the buffer is NULL, the initial and grow size
+ *							if the buffer is nullptr, the initial and grow size
  *							of an internally allocated buffer.
  *  @param bufferSize       Size in bytes of the buffer.
  *  @result                 Success or failure of the operation.
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3MemoryStorage_SetBuffer (
-    TQ3StorageObject              storage,
-    unsigned char                 *buffer,
+    TQ3StorageObject _Nonnull             storage,
+    unsigned char                 * _Nullable buffer,
     TQ3Uns32                      validSize,
     TQ3Uns32                      bufferSize
 );
@@ -352,7 +356,7 @@ Q3MemoryStorage_SetBuffer (
  *      The pointer may become invalid if later storage operations cause the
  *		buffer to be reallocated.
  *
- *		Each of the output parameters may be NULL if you don't need that information.
+ *		Each of the output parameters may be nullptr if you don't need that information.
  *
  *  @param storage          The storage object.
  *  @param buffer           On output, receives a pointer to the actual data
@@ -364,10 +368,10 @@ Q3MemoryStorage_SetBuffer (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3MemoryStorage_GetBuffer (
-    TQ3StorageObject              storage,
-    unsigned char                 **buffer,
-    TQ3Uns32                      *validSize,
-    TQ3Uns32                      *bufferSize
+    TQ3StorageObject _Nonnull             storage,
+    unsigned char                 * _Nonnull * _Nullable buffer,
+    TQ3Uns32                      * _Nullable validSize,
+    TQ3Uns32                      * _Nullable bufferSize
 );
 
 /*!
@@ -384,19 +388,22 @@ Q3MemoryStorage_GetBuffer (
  *		and is intended to replace the poorly-named "Unix path" storage.
  *
  *		The exact format of permissible paths is platform-dependent.  For example,
- *		in a Mac version of Quesa built with the Metrowerks Standard Library,
- *		the path is colon-separated and assumed to be in the system encoding.
+ *		on Mac OS X, the path is slash-separated and assumed to be in the UTF-8
+ *		character encoding.
+ *
+ *		If the file does not already exist, opening the storage for writing will
+ *		create it.
  *
  *      <em>This function is not available in QD3D.</em>
  *
- *  @param pathName         A NULL-terminated pathname, as might be passed to fopen.
+ *  @param pathName         A NUL-terminated pathname, as might be passed to fopen.
  *  @result                 The new storage object.
  */
 #if QUESA_ALLOW_QD3D_EXTENSIONS
 
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3PathStorage_New (
-    const char                    *pathName
+    const char                    * _Nonnull pathName
 );
 
 #endif // QUESA_ALLOW_QD3D_EXTENSIONS
@@ -412,15 +419,15 @@ Q3PathStorage_New (
  *      <em>This function is not available in QD3D.</em>
  *
  *  @param theStorage       A path storage object.
- *  @param pathName         A NULL-terminated pathname.
+ *  @param pathName         A NUL-terminated pathname.
  *  @result                 Success or failure of the operation.
  */
 #if QUESA_ALLOW_QD3D_EXTENSIONS
 
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3PathStorage_Set (
-    TQ3StorageObject              theStorage,
-    const char                    *pathName
+    TQ3StorageObject _Nonnull             theStorage,
+    const char                    * _Nonnull pathName
 );
 
 #endif // QUESA_ALLOW_QD3D_EXTENSIONS
@@ -439,15 +446,15 @@ Q3PathStorage_Set (
  *      <em>This function is not available in QD3D.</em>
  *
  *  @param theStorage       A path storage object.
- *  @param pathName         On output, the path as a NULL-terminated string.
+ *  @param pathName         On output, the path as a NUL-terminated string.
  *  @result                 Success or failure of the operation.
  */
 #if QUESA_ALLOW_QD3D_EXTENSIONS
 
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3PathStorage_Get (
-    TQ3StorageObject              theStorage,
-    char                          *pathName
+    TQ3StorageObject _Nonnull             theStorage,
+    char                          * _Nonnull pathName
 );
 
 #endif // QUESA_ALLOW_QD3D_EXTENSIONS
@@ -474,9 +481,9 @@ Q3PathStorage_Get (
 	@param		theStream An open stream.
 	@result		The new storage object.
 */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3FileStreamStorage_New (
-    FILE* theStream
+    FILE* _Nonnull theStream
 );
 
 
@@ -493,8 +500,8 @@ Q3FileStreamStorage_New (
 */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3FileStreamStorage_Get (
-    TQ3StorageObject              theStorage,
-    FILE**                        theStream
+    TQ3StorageObject _Nonnull             theStorage,
+    FILE* _Nullable *  _Nonnull                      theStream
 );
 
 
@@ -511,8 +518,8 @@ Q3FileStreamStorage_Get (
 */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3FileStreamStorage_Set (
-    TQ3StorageObject              theStorage,
-    FILE*                         theStream
+    TQ3StorageObject _Nonnull             theStorage,
+    FILE* _Nonnull                        theStream
 );
 
 
@@ -535,18 +542,18 @@ Q3FileStreamStorage_Set (
  *      Create a Handle storage object.
  *
  *      Create a storage object that stores data in a Macintosh memory Handle.
- *		If you pass NULL for the Handle, Quesa internally allocates a
+ *		If you pass nullptr for the Handle, Quesa internally allocates a
  *		Handle of the given size, and disposes the Handle when the storage
  *		object is disposed.
  *
- *  @param handle           An existing Handle, or NULL.
+ *  @param handle           An existing Handle, or nullptr.
  *  @param validSize        The size of the valid date in the given Handle,
- *							or the desired size if the Handle is NULL.
- *  @result                 The new storage object, or NULL on failure.
+ *							or the desired size if the Handle is nullptr.
+ *  @result                 The new storage object, or nullptr on failure.
  */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3HandleStorage_New (
-    Handle                        handle,
+    Handle _Nullable                       handle,
     TQ3Uns32                      validSize
 );
 
@@ -559,19 +566,19 @@ Q3HandleStorage_New (
  *      Set information about a Handle storage object.
  *
  *      Sets the buffer location and size of a Handle storage object.
- *		If you pass NULL for the Handle, Quesa internally allocates a
+ *		If you pass nullptr for the Handle, Quesa internally allocates a
  *		Handle of the given size, and disposes the Handle when the storage
  *		object is disposed.
  *
  *  @param storage          The storage object.
- *  @param handle           A Mac Handle to be associated with the storage, or NULL.
+ *  @param handle           A Mac Handle to be associated with the storage, or nullptr.
  *  @param validSize        Size in bytes of the specified buffer.
  *  @result                 Success or failure of the operation.
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3HandleStorage_Set (
-    TQ3StorageObject              storage,
-    Handle                        handle,
+    TQ3StorageObject _Nonnull             storage,
+    Handle _Nullable                       handle,
     TQ3Uns32                      validSize
 );
 
@@ -591,9 +598,9 @@ Q3HandleStorage_Set (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3HandleStorage_Get (
-    TQ3StorageObject              storage,
-    Handle                        *handle,
-    TQ3Uns32                      *validSize
+    TQ3StorageObject _Nonnull             storage,
+    Handle _Nullable                       * _Nonnull handle,
+    TQ3Uns32                      * _Nonnull validSize
 );
 
 /*!
@@ -616,7 +623,7 @@ Q3HandleStorage_Get (
  *							Mac file.
  *  @result                 The new storage object.
  */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3MacintoshStorage_New (
     TQ3Int16                      fsRefNum
 );
@@ -638,7 +645,7 @@ Q3MacintoshStorage_New (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3MacintoshStorage_Set (
-    TQ3StorageObject              storage,
+    TQ3StorageObject _Nonnull             storage,
     TQ3Int16                      fsRefNum
 );
 
@@ -658,8 +665,8 @@ Q3MacintoshStorage_Set (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3MacintoshStorage_Get (
-    TQ3StorageObject              storage,
-    TQ3Int16                      *fsRefNum
+    TQ3StorageObject _Nonnull             storage,
+    TQ3Int16                      * _Nonnull fsRefNum
 );
 
 
@@ -677,7 +684,7 @@ Q3MacintoshStorage_Get (
  */
 Q3_EXTERN_API_C ( TQ3ObjectType  )
 Q3MacintoshStorage_GetType (
-    TQ3StorageObject              storage
+    TQ3StorageObject _Nonnull             storage
 );
 
 
@@ -702,9 +709,9 @@ Q3MacintoshStorage_GetType (
  *  @param fr               A valid file reference.
  *  @result                 The new storage object.
  */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3FSRefStorage_New(
-    const FSRef                  *fr
+    const FSRef                  * _Nonnull fr
 );
 
 
@@ -723,8 +730,8 @@ Q3FSRefStorage_New(
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3FSRefStorage_Set (
-    TQ3StorageObject              storage,
-    const FSRef                  *fr
+    TQ3StorageObject _Nonnull             storage,
+    const FSRef                  * _Nonnull fr
 );
 
 
@@ -741,8 +748,8 @@ Q3FSRefStorage_Set (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3FSRefStorage_Get (
-    TQ3StorageObject              storage,
-    FSRef                        *fr
+    TQ3StorageObject _Nonnull             storage,
+    FSRef                        * _Nonnull fr
 );
 
 
@@ -767,9 +774,9 @@ Q3FSRefStorage_Get (
  *  @param fs               A valid file system specification.
  *  @result                 The new storage object.
  */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3FSSpecStorage_New (
-    const FSSpec                  *fs
+    const FSSpec                  * _Nonnull fs
 );
 
 
@@ -788,8 +795,8 @@ Q3FSSpecStorage_New (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3FSSpecStorage_Set (
-    TQ3StorageObject              storage,
-    const FSSpec                  *fs
+    TQ3StorageObject _Nonnull             storage,
+    const FSSpec                  * _Nonnull fs
 );
 
 
@@ -806,8 +813,8 @@ Q3FSSpecStorage_Set (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3FSSpecStorage_Get (
-    TQ3StorageObject              storage,
-    FSSpec                        *fs
+    TQ3StorageObject _Nonnull             storage,
+    FSSpec                        * _Nonnull fs
 );
 
 #endif // QUESA_OS_MACINTOSH
@@ -837,7 +844,7 @@ Q3FSSpecStorage_Get (
  *  @param hFile            A valid file handle.
  *  @result                 The new storage object.
  */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3Win32Storage_New (
     HANDLE                        hFile
 );
@@ -856,7 +863,7 @@ Q3Win32Storage_New (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3Win32Storage_Set (
-    TQ3StorageObject              storage,
+    TQ3StorageObject _Nonnull             storage,
     HANDLE                        hFile
 );
 
@@ -874,8 +881,8 @@ Q3Win32Storage_Set (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3Win32Storage_Get (
-    TQ3StorageObject              storage,
-    HANDLE                        *hFile
+    TQ3StorageObject _Nonnull             storage,
+    HANDLE                        * _Nonnull hFile
 );
 
 #endif // QUESA_OS_WIN32
@@ -901,12 +908,12 @@ Q3Win32Storage_Get (
  *
  *      The Quesa extension Q3PathStorage_New may be used in place of this.
  *
- *  @param pathName        A NULL-terminated file system path.
+ *  @param pathName        A NUL-terminated file system path.
  *  @result                The new storage object.
  */
-Q3_EXTERN_API_C ( TQ3StorageObject  )
+Q3_EXTERN_API_C ( TQ3StorageObject _Nonnull )
 Q3UnixPathStorage_New (
-    const char                    *pathName
+    const char                    * _Nonnull pathName
 );
 
 
@@ -918,13 +925,13 @@ Q3UnixPathStorage_New (
  *      Change the path associated with a Unix path storage object.
  *
  *  @param storage          A Unix path storage object.
- *  @param pathName         A NULL-terminated file system path.
+ *  @param pathName         A NUL-terminated file system path.
  *  @result                 Success or failure of the operation.
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3UnixPathStorage_Set (
-    TQ3StorageObject              storage,
-    const char                    *pathName
+    TQ3StorageObject _Nonnull             storage,
+    const char                    * _Nonnull pathName
 );
 
 
@@ -939,13 +946,13 @@ Q3UnixPathStorage_Set (
  *		Be sure to allocate enough space for it.
  *
  *  @param storage          A Unix path storage object.
- *  @param pathName         On output, a NULL-terminated path.
+ *  @param pathName         On output, a NUL-terminated path.
  *  @result                 Success or failure of the operation.
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3UnixPathStorage_Get (
-    TQ3StorageObject              storage,
-    char                          *pathName
+    TQ3StorageObject _Nonnull             storage,
+    char                          * _Nonnull pathName
 );
 
 #endif // QUESA_OS_UNIX

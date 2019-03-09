@@ -1,6 +1,5 @@
 // Architectures
-ARCHS = $(ARCHS_STANDARD)
-
+ARCHS = x86_64
 ONLY_ACTIVE_ARCH = NO
 SDKROOT = macosx
 
@@ -12,7 +11,8 @@ GCC_VERSION =
 
 // Search Paths
 FSP_QUESA = "$(SRCROOT)/../../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)"
-FRAMEWORK_SEARCH_PATHS = $(FSP_QUESA) $(SDKROOT)/Library/Frameworks
+FRAMEWORK_SEARCH_PATHS = $(FSP_QUESA)
+ALWAYS_SEARCH_USER_PATHS = NO
 
 // Build Options
 DEBUG_INFORMATION_FORMAT = dwarf

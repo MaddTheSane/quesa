@@ -1,5 +1,9 @@
 /*! @header QuesaErrors.h
         Declares the Quesa error manager.
+        
+	@ignore	_Nullable
+	@ignore _Nonnull
+	@ignore	_Null_unspecified
  */
 /*  NAME:
         QuesaErrors.h
@@ -8,7 +12,7 @@
         Quesa public header.
 
     COPYRIGHT:
-        Copyright (c) 1999-2008, Quesa Developers. All rights reserved.
+        Copyright (c) 1999-2018, Quesa Developers. All rights reserved.
 
         For the current release of Quesa, please see:
 
@@ -94,7 +98,7 @@ extern "C" {
  *  @constant kQ3ErrorX11Error                             X11 error.
  *  @constant kQ3ErrorMemoryLeak                           Memory leak.
  *  @constant kQ3ErrorOutOfMemory                          Out of memory.
- *  @constant kQ3ErrorNULLParameter                        NULL parameter.
+ *  @constant kQ3ErrorNULLParameter                        nullptr parameter.
  *  @constant kQ3ErrorParameterOutOfRange                  Parameter out of range.
  *  @constant kQ3ErrorInvalidParameter                     Invalid parameter.
  *  @constant kQ3ErrorInvalidData                          Invalid data.
@@ -608,7 +612,7 @@ typedef Q3_CALLBACK_API_C(void,                TQ3NoticeMethod)(
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3Error_Register (
-    TQ3ErrorMethod                errorPost,
+    TQ3ErrorMethod _Nullable      errorPost,
     TQ3Int32                      reference
 );
 
@@ -630,7 +634,7 @@ Q3Error_Register (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3Warning_Register (
-    TQ3WarningMethod              warningPost,
+    TQ3WarningMethod _Nullable    warningPost,
     TQ3Int32                      reference
 );
 
@@ -653,7 +657,7 @@ Q3Warning_Register (
  */
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3Notice_Register (
-    TQ3NoticeMethod               noticePost,
+    TQ3NoticeMethod _Nullable     noticePost,
     TQ3Int32                      reference
 );
 
@@ -670,13 +674,13 @@ Q3Notice_Register (
  *		part of the Error Manager will clear the error codes.
  *
  *  @param firstError       Pointer to variable to receive the oldest error code
- *							that has not yet been reported.  May be NULL if you
+ *							that has not yet been reported.  May be nullptr if you
  *							don't need that information.
  *  @result                 Most recent error code.
  */
 Q3_EXTERN_API_C ( TQ3Error  )
 Q3Error_Get (
-    TQ3Error                      *firstError
+    TQ3Error                      * _Nullable firstError
 );
 
 
@@ -712,13 +716,13 @@ Q3Error_IsFatalError (
  *		part of the Error Manager will clear the warning codes.
  *
  *  @param firstWarning     Pointer to variable to receive the oldest warning code
- *							that has not yet been reported.  May be NULL if you
+ *							that has not yet been reported.  May be nullptr if you
  *							don't need that information.
  *  @result                 Most recent warning code.
  */
 Q3_EXTERN_API_C ( TQ3Warning  )
 Q3Warning_Get (
-    TQ3Warning                    *firstWarning
+    TQ3Warning                    * _Nullable firstWarning
 );
 
 
@@ -734,13 +738,13 @@ Q3Warning_Get (
  *		part of the Error Manager will clear the notice codes.
  *
  *  @param firstNotice      Pointer to variable to receive the oldest notice code
- *							that has not yet been reported.  May be NULL if you
+ *							that has not yet been reported.  May be nullptr if you
  *							don't need that information.
  *  @result                 Most recent notice code.
  */
 Q3_EXTERN_API_C ( TQ3Notice  )
 Q3Notice_Get (
-    TQ3Notice                     *firstNotice
+    TQ3Notice                     * _Nullable firstNotice
 );
 
 
@@ -763,7 +767,7 @@ Q3Notice_Get (
  *      <em>This function is not available in QD3D.</em>
  *
  *  @param firstErr         Pointer to variable to receive the oldest unreported
- *							platform-specific error code.  May be NULL if you
+ *							platform-specific error code.  May be nullptr if you
  *							don't need that information.
  *  @result                 Most recent platform-specific error code.
  */
@@ -771,7 +775,7 @@ Q3Notice_Get (
 
 Q3_EXTERN_API_C ( TQ3Uns32  )
 Q3Error_PlatformGet (
-    TQ3Uns32                      *firstErr
+    TQ3Uns32                      * _Nullable firstErr
 );
 
 #endif // QUESA_ALLOW_QD3D_EXTENSIONS
@@ -812,11 +816,11 @@ Q3Error_PlatformPost (
  *  @param theLanguage      Preferred language for the error string.
  *							Currently only English is supported.
  *  @param theError         Quesa error code.
- *  @result                 Text version of the error code, as a NULL-terminated string.
+ *  @result                 Text version of the error code, as a NUL-terminated string.
  */
 #if QUESA_ALLOW_QD3D_EXTENSIONS
 
-Q3_EXTERN_API_C ( const char * )
+Q3_EXTERN_API_C ( const char * _Nonnull )
 Q3Error_ToString (
     TQ3Language                   theLanguage,
     TQ3Error                      theError
@@ -837,11 +841,11 @@ Q3Error_ToString (
  *  @param theLanguage      Preferred language for the warning string.
  *							Currently only English is supported.
  *  @param theWarning       Quesa warning code.
- *  @result                 Text version of the warning code, as a NULL-terminated string.
+ *  @result                 Text version of the warning code, as a NUL-terminated string.
  */
 #if QUESA_ALLOW_QD3D_EXTENSIONS
 
-Q3_EXTERN_API_C ( const char * )
+Q3_EXTERN_API_C ( const char * _Nonnull )
 Q3Warning_ToString (
     TQ3Language                   theLanguage,
     TQ3Warning                    theWarning
@@ -862,11 +866,11 @@ Q3Warning_ToString (
  *  @param theLanguage      Preferred language for the notice string.
  *							Currently only English is supported.
  *  @param theWarning       Quesa notice code.
- *  @result                 Text version of the notice code, as a NULL-terminated string.
+ *  @result                 Text version of the notice code, as a NUL-terminated string.
  */
 #if QUESA_ALLOW_QD3D_EXTENSIONS
 
-Q3_EXTERN_API_C ( const char * )
+Q3_EXTERN_API_C ( const char * _Nonnull )
 Q3Notice_ToString (
     TQ3Language                   theLanguage,
     TQ3Notice                     theError
@@ -894,13 +898,13 @@ Q3Notice_ToString (
  *		Q3Error_PlatformGet may be used in place of this function.
  *
  *  @param firstMacErr      Pointer to variable to receive the oldest Mac error code
- *							that has not yet been reported.  May be NULL if you
+ *							that has not yet been reported.  May be nullptr if you
  *							don't need that information.
  *  @result                 Most recent Mac error code.
  */
 Q3_EXTERN_API_C ( OSErr  )
 Q3MacintoshError_Get (
-    OSErr                         *firstMacErr
+    OSErr                         * _Nullable firstMacErr
 );
 
 #endif // QUESA_OS_MACINTOSH

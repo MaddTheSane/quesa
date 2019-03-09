@@ -5,7 +5,7 @@
         Header file for E3Main.c.
 
     COPYRIGHT:
-        Copyright (c) 1999-2016, Quesa Developers. All rights reserved.
+        Copyright (c) 1999-2018, Quesa Developers. All rights reserved.
 
         For the current release of Quesa, please see:
 
@@ -111,7 +111,7 @@ private :
 								_Name,														\
 								_metaHandler,												\
 								sizeof ( _instanceClass ),									\
-								sizeof ( ((_instanceClass*)0)->instanceData ),				\
+								sizeof ( ((_instanceClass*)nullptr)->instanceData ),				\
 								Q3_OFFSETOF( _instanceClass, instanceData )					\
 								)
 
@@ -124,7 +124,7 @@ private :
 								_Name,														\
 								_metaHandler,												\
 								sizeof ( _instanceClass ),									\
-								sizeof ( ((_instanceClass*)0)->_memberName ),				\
+								sizeof ( ((_instanceClass*)nullptr)->_memberName ),				\
 								Q3_OFFSETOF( _instanceClass, _memberName )					\
 								)
 
@@ -277,7 +277,6 @@ public :
 	// Locate a class
 	inline E3ClassInfoPtr		GetClass ( void ) const
 											{
-												Q3_ASSERT( this != NULL );
 												return theClass;
 											}
 								
