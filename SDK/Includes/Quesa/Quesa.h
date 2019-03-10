@@ -146,6 +146,7 @@
 // Mac specific
 #if (QUESA_OS_MACINTOSH)
 	#include <AvailabilityMacros.h>
+	#include <CoreFoundation/CFBase.h>
 
     // Build constants
     #ifdef __LITTLE_ENDIAN__

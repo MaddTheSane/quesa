@@ -710,69 +710,6 @@ e3pick_windowpoint_delete(TQ3Object theObject, void *privateData)
 
 
 //=============================================================================
-//      e3pick_metahandler : Base pick metahandler.
-//-----------------------------------------------------------------------------
-static TQ3XFunctionPointer
-e3pick_metahandler(TQ3XMethodType methodType)
-{	TQ3XFunctionPointer		theMethod = NULL;
-
-
-
-	// Return our methods
-	switch (methodType) {
-		case kQ3XMethodTypeObjectNew:
-			theMethod = (TQ3XFunctionPointer) e3pick_new;
-			break;
-
-		case kQ3XMethodTypeObjectDelete:
-			theMethod = (TQ3XFunctionPointer) e3pick_delete;
-			break;
-		}
-	
-	return(theMethod);
-}
-
-
-
-
-
-#pragma mark -
-//=============================================================================
-//      e3pick_windowpoint_new : Window point pick new method.
-//-----------------------------------------------------------------------------
-static TQ3Status
-e3pick_windowpoint_new(TQ3Object theObject, void *privateData, const void *paramData)
-{
-	TQ3WindowPointPickSpecificData* instanceData = (TQ3WindowPointPickSpecificData *) privateData;
-	const TQ3WindowPointPickData	*pickData     = (const TQ3WindowPointPickData *) paramData;
-	E3Pick* parentOb = (E3Pick*) theObject;
-
-
-	// Initialise our instance data
-	instanceData->point = pickData->point;
-	parentOb->baseInstanceData.vertexTolerance = pickData->vertexTolerance;
-	parentOb->baseInstanceData.edgeTolerance = pickData->edgeTolerance;
-	
-	return(kQ3Success);
-}
-
-
-
-
-
-//=============================================================================
-//      e3pick_windowpoint_delete : Window point pick delete method.
-//-----------------------------------------------------------------------------
-static void
-e3pick_windowpoint_delete(TQ3Object theObject, void *privateData)
-{
-}
-
-
-
-
-
-//=============================================================================
 //      e3pick_windowpoint_metahandler : Window point pick metahandler.
 //-----------------------------------------------------------------------------
 static TQ3XFunctionPointer
@@ -1413,6 +1350,7 @@ E3Pick_SetEdgeTolerance(TQ3PickObject thePick, float edgeTolerance)
 
 	return kQ3Success ;
 }
+
 
 
 
