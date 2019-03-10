@@ -428,24 +428,6 @@ Q3Pick_GetFaceTolerance (
 
 /*!
  *  @function
- *      Q3Pick_GetFaceTolerance
- *  @discussion
- *      Get the face tolerance of a pick object.
- *
- *  @param pick             The pick object to query.
- *  @param faceTolerance    Receives the face tolerance of the pick object.
- *  @result                 Success or failure of the operation.
- */
-Q3_EXTERN_API_C ( TQ3Status  )
-Q3Pick_GetFaceTolerance (
-    TQ3PickObject                 pick,
-    float                         *faceTolerance
-);
-
-
-
-/*!
- *  @function
  *      Q3Pick_SetVertexTolerance
  *  @discussion
  *      Set the vertex tolerance of a pick object.
