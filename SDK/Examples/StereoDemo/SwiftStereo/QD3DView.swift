@@ -65,6 +65,9 @@ class QD3DView: NSView {
 	}()
 	
 	func createLight(withData lightData: Any) {
+		guard let quesaView = quesaView else {
+			return
+		}
 		var theLight: TQ3LightObject?
 		var lightGroup: TQ3GroupObject?
 		// Get the light group for the view
@@ -103,7 +106,7 @@ class QD3DView: NSView {
 		}
 		
 		// Add the light to the light group
-		if let theLight = theLight {
+		if let theLight = theLight, let lightGroup = lightGroup {
 			Q3Group_AddObject(lightGroup, theLight);
 			Q3Object_Dispose(theLight);
 		}
@@ -141,7 +144,7 @@ class QD3DView: NSView {
 			print("quesaView is still NULL!")
 		}
 		
-		if let quesaDelegate = qd3dDelegate {
+		if let quesaDelegate = qd3dDelegate, let quesaView = quesaView {
 			// Pre-render delegate notification
 			quesaDelegate.qd3dViewRenderFrame?(self)
 			
@@ -234,6 +237,9 @@ class QD3DView: NSView {
 	}
 	
 	@objc private func frameChanged(_ note: Notification) {
+		guard let drawContext = drawContext, let camera = camera else {
+			return
+		}
 		var theArea = TQ3Area()
 		Q3DrawContext_GetPane(drawContext, &theArea);
 

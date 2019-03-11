@@ -46,7 +46,6 @@
 #include "QutTexture.h"
 
 #include <stdio.h>
-#include "OldCarbHeaders.h"
 
 
 //=============================================================================

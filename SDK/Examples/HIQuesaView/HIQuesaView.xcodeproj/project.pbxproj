@@ -379,7 +379,6 @@
 				HEADER_SEARCH_PATHS = (
 					../../../Development/Source/Core/Viewer,
 					"$(inherited)",
-					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 			};
 			name = Debug;
@@ -399,7 +398,6 @@
 				HEADER_SEARCH_PATHS = (
 					../../../Development/Source/Core/Viewer,
 					"$(inherited)",
-					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		550B323220A97C3B00E88B48 /* QutCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 550B322E20A97BB100E88B48 /* QutCocoa.m */; };
+		5520FAF8223654A400998DA9 /* Quesa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8E7D8206F09DA008A8C30 /* Quesa.framework */; };
+		5520FAF9223654A400998DA9 /* Quesa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8E7D8206F09DA008A8C30 /* Quesa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5572963D206F150B0068DC8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5572963C206F150B0068DC8D /* AppDelegate.m */; };
 		5572963F206F150C0068DC8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5572963E206F150C0068DC8D /* Assets.xcassets */; };
 		55729645206F150C0068DC8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55729644206F150C0068DC8D /* main.m */; };
@@ -50,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5520FAFA223654A400998DA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55A8E7D2206F09DA008A8C30 /* Quesa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D07F2BC0486CC7A007CD1D0;
+			remoteInfo = Framework;
+		};
 		55A8E7D7206F09DA008A8C30 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55A8E7D2206F09DA008A8C30 /* Quesa.xcodeproj */;
@@ -88,6 +97,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		5520FAFC223654A500998DA9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5520FAF9223654A400998DA9 /* Quesa.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE7019C209F6DE5400940AA2 /* Copy Plugins */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -176,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5520FAF8223654A400998DA9 /* Quesa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,10 +395,12 @@
 				55729635206F150B0068DC8D /* Sources */,
 				55729636206F150B0068DC8D /* Frameworks */,
 				55729637206F150B0068DC8D /* Resources */,
+				5520FAFC223654A500998DA9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5520FAFB223654A400998DA9 /* PBXTargetDependency */,
 			);
 			name = "Geom Test Cocoa";
 			productName = "Geom Test Cocoa";
@@ -555,6 +578,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5520FAFB223654A400998DA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Framework;
+			targetProxy = 5520FAFA223654A400998DA9 /* PBXContainerItemProxy */;
+		};
 		55A8E7DC206F09E8008A8C30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Framework;
@@ -610,6 +638,10 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -627,7 +659,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.Geom-Test-Cocoa";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -677,6 +708,10 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -699,11 +734,9 @@
 		BEDC057B08A5B9E800FB3A82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)\"",
-					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
@@ -718,11 +751,9 @@
 		BEDC057C08A5B9E800FB3A82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)\"",
-					"\"$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/\"",
 				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
@@ -739,6 +770,7 @@
 			baseConfigurationReference = BE703F950B17CC3100F06E3D /* GeomTest.xcconfig */;
 			buildSettings = {
 				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Geom Test Univ D";
 			};
 			name = Debug;

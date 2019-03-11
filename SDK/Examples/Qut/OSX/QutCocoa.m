@@ -67,7 +67,6 @@
 
 #if QUT_MAC_CARBON_EVENTS
 	#include <Carbon/Carbon.h>
-	#include "OldCarbHeaders.h"
 #endif
 
 
@@ -875,18 +874,6 @@ qut_filter_file_name_test( AEDesc *theItem )
 	{
 		err = AEGetDescData( theItem, &fileRef, sizeof(fileRef) );
 		
-	}
-	else if (theItem->descriptorType == typeFSS)
-	{
-		AEDesc	someDesc = {
-			typeNull, 0
-		};
-		err = AECoerceDesc( theItem, typeFSRef, &someDesc );
-		if (err == noErr)
-		{
-			err = AEGetDescData( &someDesc, &fileRef, sizeof(fileRef) );
-			AEDisposeDesc( &someDesc );
-		}
 	}
 	else	// what else could it be?
 	{

@@ -573,7 +573,7 @@ Q3View_SetLightGroup (
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3View_GetLightGroup (
     TQ3ViewObject _Nonnull                view,
-    TQ3GroupObject _Nonnull               * _Nonnull lightGroup
+    TQ3GroupObject _Nullable              * _Nonnull lightGroup
 );
 
 
