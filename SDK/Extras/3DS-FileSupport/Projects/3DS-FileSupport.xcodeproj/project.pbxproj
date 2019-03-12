@@ -378,10 +378,6 @@
 			baseConfigurationReference = B155821E0B5E3EA5004E2AE6 /* 3DS-FileSupport.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(PROJECT_DIR)/../../../../Development/Projects/Mac/oldMacHeaders/\"",
-					"$(inherited)",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.Quesa.3DS-Support";
 			};
 			name = Release;
@@ -389,10 +385,6 @@
 		BE7C488308AF202E00559F64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					"$(ARCHS_STANDARD_64_BIT)",
-				);
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -432,10 +424,6 @@
 			baseConfigurationReference = B155821E0B5E3EA5004E2AE6 /* 3DS-FileSupport.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(PROJECT_DIR)/../../../../Development/Projects/Mac/oldMacHeaders/\"",
-					"$(inherited)",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.Quesa.3DS-Support";
 			};
 			name = Debug;
@@ -443,10 +431,6 @@
 		BEC95CB408A86B3C001E16B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					"$(ARCHS_STANDARD_64_BIT)",
-				);
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
