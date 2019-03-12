@@ -66,7 +66,6 @@
 		BE8D826E1328AC41009324C6 /* TransformV2ToObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE8D82611328AC41009324C6 /* TransformV2ToObject.cpp */; };
 		BE8D82731328AC55009324C6 /* NodeV2ToObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE8D82711328AC55009324C6 /* NodeV2ToObject.cpp */; };
 		BE8D82741328AC55009324C6 /* ParseVRML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE8D82721328AC55009324C6 /* ParseVRML.cpp */; };
-		BE90AD3A1D9ADB7F00FF3CF4 /* error_code.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE90AD391D9ADB7F00FF3CF4 /* error_code.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -635,7 +634,6 @@
 				BE8D826E1328AC41009324C6 /* TransformV2ToObject.cpp in Sources */,
 				BE8D82731328AC55009324C6 /* NodeV2ToObject.cpp in Sources */,
 				BE8D82741328AC55009324C6 /* ParseVRML.cpp in Sources */,
-				BE90AD3A1D9ADB7F00FF3CF4 /* error_code.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,10 +653,7 @@
 			buildSettings = {
 				Boost = /opt/local/include/;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(PROJECT_DIR)/../../../../Development/Projects/Mac/oldMacHeaders/\"",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "/opt/local/lib/libboost_system-mt.a";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.Quesa.VRML-Reader";
 			};
 			name = Release;
@@ -707,10 +702,7 @@
 			buildSettings = {
 				Boost = /opt/local/include/;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(PROJECT_DIR)/../../../../Development/Projects/Mac/oldMacHeaders/\"",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "/opt/local/lib/libboost_system-mt.a";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.Quesa.VRML-Reader";
 			};
 			name = Debug;
