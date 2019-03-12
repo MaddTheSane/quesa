@@ -140,11 +140,12 @@ class QD3DView: NSView {
 	/// if you want to 'force' a Quesa3DView to draw a frame, use `setNeedsDisplay:YES`
 	/// or `display`
 	func drawQD3D() {
-		if quesaView == nil {
+		guard let quesaView = quesaView else  {
 			print("quesaView is still NULL!")
+			return
 		}
 		
-		if let quesaDelegate = qd3dDelegate, let quesaView = quesaView {
+		if let quesaDelegate = qd3dDelegate {
 			// Pre-render delegate notification
 			quesaDelegate.qd3dViewRenderFrame?(self)
 			

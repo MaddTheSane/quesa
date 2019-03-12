@@ -6,8 +6,8 @@ GCC_VERSION =
 GCC_VERSION[arch=ppc] = 4.0
 
 // Search Paths
-FSP_QUESA = "$(SRCROOT)/../../Libraries/Mac/Framework_Modern/Debug"
-FRAMEWORK_SEARCH_PATHS = $(FSP_QUESA) $(SDKROOT)/Library/Frameworks "$(PROJECT_DIR)/../../../Development/Projects/Mac/oldMacHeaders/"
+FSP_QUESA = "$(SRCROOT)/../../Libraries/Mac/Framework_Modern/$(CONFIGURATION)"
+FRAMEWORK_SEARCH_PATHS = $(FSP_QUESA) /Library/Frameworks
 
 // Build Options
 DEBUG_INFORMATION_FORMAT = dwarf

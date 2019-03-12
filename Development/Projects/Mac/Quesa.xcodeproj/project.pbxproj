@@ -1698,7 +1698,6 @@
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				FRAMEWORK_SEARCH_PATHS = oldMacHeaders;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"Q3_EXPORT_SYMBOLS=1",
