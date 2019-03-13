@@ -318,23 +318,21 @@ public func normalize(_ inVec2: TQ3Vector3D) -> TQ3Vector3D {
 }
 
 public func length(_ inVec2: TQ3Vector3D) -> Float {
-	var inVec = inVec2
-	return Q3Vector3D_Length(&inVec)
+	return sqrt(length_squared(inVec2))
 }
 
-public func length_squared(_ inVec2: TQ3Vector3D) -> Float {
-	var inVec = inVec2
-	return Q3Vector3D_LengthSquared(&inVec)
+public func length_squared(_ _v: TQ3Vector3D) -> Float {
+	let toRet = (_v.x * _v.x) + (_v.y * _v.y) + (_v.z * _v.z)
+	return toRet
 }
 
 public func length(_ inVec2: TQ3Vector2D) -> Float {
-	var inVec = inVec2
-	return Q3Vector2D_Length(&inVec)
+	return sqrt(length_squared(inVec2))
 }
 
-public func length_squared(_ inVec2: TQ3Vector2D) -> Float {
-	var inVec = inVec2
-	return Q3Vector2D_LengthSquared(&inVec)
+public func length_squared(_ _v: TQ3Vector2D) -> Float {
+	let toRet = (_v.x * _v.x) + (_v.y * _v.y)
+	return toRet
 }
 
 public extension TQ3Matrix4x4 {
