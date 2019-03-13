@@ -186,6 +186,99 @@ public func -=(_ ioA: inout TQ3Vector3D, _ inBa: TQ3Vector3D ) {
 	ioA = ioAa
 }
 
+/// pt += vector
+public func +=(_ ioA: inout TQ3Point3D, _ inBa: TQ3Vector3D )
+{
+	var inB = inBa; var tmpA = ioA;
+	Q3Point3D_Vector3D_Add( &ioA, &inB, &tmpA )
+	ioA = tmpA
+}
+
+/// pt -= vector
+public func -=(_ ioA: inout TQ3Point3D, _ inBa: TQ3Vector3D ) {
+	var inB = inBa; var tmpA = ioA;
+	Q3Point3D_Vector3D_Subtract( &ioA, &inB, &tmpA );
+	ioA = tmpA
+}
+
+/*
+// pt = pt + pt (useful for weighted averages)
+public func +( const TQ3Point3D& inA, const TQ3Point3D& inB ) -> TQ3Point3D
+{
+var result = TQ3Point3D()
+Q3FastVector3D_Add( (const TQ3Vector3D*)&inA, (const TQ3Vector3D*)&inB, (TQ3Vector3D*)&result );
+return result;
+}
+
+// pt = pt + pt (useful for weighted averages) [2D]
+inline TQ3Point2D operator+( const TQ3Point2D& inA, const TQ3Point2D& inB )
+{
+TQ3Point2D result;
+Q3FastVector2D_Add( (const TQ3Vector2D*)&inA, (const TQ3Vector2D*)&inB, (TQ3Vector2D*)&result );
+return result;
+}
+*/
+
+
+//=============================================================================
+//      Matrix Operations
+//-----------------------------------------------------------------------------
+
+// matrix * matrix
+public func *(_ inMata: TQ3Matrix4x4, _ inMat2a: TQ3Matrix4x4 ) -> TQ3Matrix4x4 {
+	var result = TQ3Matrix4x4(); var inMat1 = inMata; var inMat2 = inMat2a
+	Q3Matrix4x4_Multiply( &inMat1, &inMat2, &result )
+	return result
+}
+
+// matrix *= matrix;
+public func *=(_ ioMat: inout TQ3Matrix4x4 , _ inMat2a: TQ3Matrix4x4 )
+{
+	var io = TQ3Matrix4x4(); var inMat2 = inMat2a;
+	Q3Matrix4x4_Multiply( &ioMat, &inMat2, &io )
+	ioMat = io
+}
+
+/*
+// pt * matrix (transform point)
+inline TQ3Point3D operator*( const TQ3Point3D& inPt, const TQ3Matrix4x4& inMat )
+{
+TQ3Point3D result;
+Q3Point3D_Transform( &inPt, &inMat, &result );
+return result;
+}
+
+// pt * matrix (transform rational point)
+inline TQ3RationalPoint4D operator*( const TQ3RationalPoint4D& inPt, const TQ3Matrix4x4& inMat )
+{
+TQ3RationalPoint4D result;
+Q3RationalPoint4D_Transform( &inPt, &inMat, &result );
+return result;
+}
+
+// pt *= matrix (transform point)
+inline TQ3Point3D& operator*=( TQ3Point3D& ioPt, const TQ3Matrix4x4& inMat )
+{
+Q3Point3D_Transform( &ioPt, &inMat, &ioPt );
+return ioPt;
+}
+
+// vector * matrix (transform vector)
+inline TQ3Vector3D operator*( const TQ3Vector3D& inVec, const TQ3Matrix4x4& inMat )
+{
+TQ3Vector3D result;
+Q3Vector3D_Transform( &inVec, &inMat, &result );
+return result;
+}
+
+// vector *= matrix (transform vector)
+inline TQ3Vector3D& operator*=( TQ3Vector3D& ioVec, const TQ3Matrix4x4& inMat )
+{
+Q3Vector3D_Transform( &ioVec, &inMat, &ioVec );
+return ioVec;
+}
+*/
+
 //=============================================================================
 //      Common Functions
 //-----------------------------------------------------------------------------
@@ -244,8 +337,10 @@ public func length_squared(_ inVec2: TQ3Vector2D) -> Float {
 	return Q3Vector2D_LengthSquared(&inVec)
 }
 
-public func Q3Invert(_ inMtx2: TQ3Matrix4x4 ) -> TQ3Matrix4x4 {
-	var result = TQ3Matrix4x4(); var inMtx = inMtx2;
-	Q3Matrix4x4_Invert( &inMtx, &result );
-	return result;
+public extension TQ3Matrix4x4 {
+	public var inverse: TQ3Matrix4x4 {
+		var result = TQ3Matrix4x4(); var inMtx = self;
+		Q3Matrix4x4_Invert( &inMtx, &result )
+		return result
+	}
 }
