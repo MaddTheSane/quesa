@@ -312,3 +312,11 @@ public extension TQ3Matrix4x4 {
 		return result
 	}
 }
+
+public func Q3Math_DegreesToRadians(_ x: Float) -> Float {
+	return ((x) *  kQ3Pi / 180.0)
+}
+
+public func Q3Math_RadiansToDegrees(_ x: Float) -> Float {
+	return ((x) * 180.0 / kQ3Pi)
+}

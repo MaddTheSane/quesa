@@ -14,6 +14,7 @@ import Quesa.QuesaMath
 import Quesa.QuesaLight
 import Quesa.QuesaStyle
 import Quesa.QuesaGroup
+import QuesaSwift
 
 
 ///	The `QD3DViewDelegate` is called upon to actually submit the application
@@ -202,7 +203,131 @@ class QD3DView: NSView {
     }
 	
 	private func setupQD3D() {
+		initQ3DrawContext()
+		initQ3View()
+	}
+	
+	private func initQ3DrawContext() {
+		var cocoaDrawContextData = TQ3CocoaDrawContextData(drawContextData: TQ3DrawContextData(), nsView: Unmanaged.passUnretained(self))
+		var resetDrawContext: TQ3Boolean
+		var qd3dStatus: TQ3Status
+		let frame = self.bounds;
 		
+		// See if we've got an existing draw context we can reuse. If we
+		// do, we grab as much of its state data as we can - this means we
+		// wil preserve any changes made by the app's view-configure method.
+		resetDrawContext = kQ3True;
+		if let quesaView = quesaView {
+			qd3dStatus = Q3View_GetDrawContext(quesaView, &drawContext);
+			if qd3dStatus == kQ3Success, let drawContext = drawContext {
+				resetDrawContext = kQ3False;
+				Q3DrawContext_GetData(drawContext, &cocoaDrawContextData.drawContextData);
+				Q3Object_Dispose(drawContext);
+			}
+		}
+		
+		// Reset the draw context data if required
+		if (resetDrawContext.boolValue)
+		{
+			// Fill in the draw context data
+			cocoaDrawContextData.drawContextData.clearImageMethod  = kQ3ClearMethodWithColor;
+			cocoaDrawContextData.drawContextData.clearImageColor.a = 1.0
+			cocoaDrawContextData.drawContextData.clearImageColor.r = 0.0
+			cocoaDrawContextData.drawContextData.clearImageColor.g = 0.0
+			cocoaDrawContextData.drawContextData.clearImageColor.b = 0.2
+			cocoaDrawContextData.drawContextData.paneState         = kQ3False;
+			cocoaDrawContextData.drawContextData.maskState		   = kQ3False;
+			cocoaDrawContextData.drawContextData.doubleBufferState = kQ3True;
+		}
+		
+		
+		
+		
+		cocoaDrawContextData.drawContextData.pane.min.x = Float(frame.origin.x);
+		cocoaDrawContextData.drawContextData.pane.min.y = Float(frame.origin.y);
+		cocoaDrawContextData.drawContextData.pane.max.x = Float(frame.origin.x+frame.size.width);
+		cocoaDrawContextData.drawContextData.pane.max.y = Float(frame.origin.y+frame.size.height);
+		
+		//cocoaDrawContextData.nsView  = self;
+		
+		
+		
+		// Create the draw context object
+		drawContext = Q3CocoaDrawContext_New(&cocoaDrawContextData);
+		if(drawContext==nil) {
+		NSLog("Unable to create draw context in initQ3DrawContext");
+		}
+		
+		
+		// Sync to monitor refresh
+		if let drawContext = drawContext
+		{
+			var	doSync = kQ3True;
+			Q3Object_SetProperty( drawContext, TQ3ObjectType(kQ3DrawContextPropertySyncToRefresh),
+								  TQ3Uns32(MemoryLayout<TQ3Boolean>.size), &doSync );
+		}
+
+	}
+	
+	private func initQ3View() {
+		var qd3dStatus: TQ3Status
+		
+		// Create the view
+		if let drawContext = drawContext {
+			// Create the view
+			quesaView = Q3View_New();
+			if let quesaView = quesaView {
+				// Configure the view
+				qd3dStatus = Q3View_SetDrawContext(quesaView,    drawContext);
+				qd3dStatus = Q3View_SetRendererByType(quesaView, kQ3RendererTypeInteractive);
+				//[self createDefaultCamera];
+				createDefaultLights()
+				
+				qd3dDelegate?.qd3dViewDidInit?(self)
+			}
+		} else {
+			NSLog("TQ3DrawContext is NULL in initQ3View!");
+		}
+	}
+	
+	public func createDefaultCamera() {
+		let cameraFrom		= TQ3Point3D(x: 0.0, y: 0.0, z: 5.0)
+		let cameraTo		= TQ3Point3D(x: 0.0, y: 0.0, z: 0.0)
+		let cameraUp		= TQ3Vector3D(x: 0.0, y: 1.0, z: 0.0)
+		let fieldOfView		= Q3Math_DegreesToRadians(50.0);
+		let hither: Float	=  0.1
+		let yon: Float		= 10.0
+		var cameraData		= TQ3ViewAngleAspectCameraData()
+		var qd3dStatus: TQ3Status
+		var theArea			= TQ3Area()
+		
+		guard let quesaView = quesaView, let drawContext = drawContext else {
+			return
+		}
+		// Get the size of the image we're rendering
+		qd3dStatus = Q3DrawContext_GetPane(drawContext, &theArea);
+		
+		// Fill in the camera data
+		cameraData.cameraData.placement.cameraLocation 	= cameraFrom;
+		cameraData.cameraData.placement.pointOfInterest = cameraTo;
+		cameraData.cameraData.placement.upVector 		= cameraUp;
+		cameraData.cameraData.range.hither				= hither;
+		cameraData.cameraData.range.yon					= yon;
+		cameraData.cameraData.viewPort.origin.x			= -1.0;
+		cameraData.cameraData.viewPort.origin.y			=  1.0;
+		cameraData.cameraData.viewPort.width			=  2.0;
+		cameraData.cameraData.viewPort.height			=  2.0;
+		cameraData.fov									= fieldOfView;
+		
+		let rectWidth                  = theArea.max.x - theArea.min.x
+		let rectHeight                 = theArea.max.y - theArea.min.y
+		cameraData.aspectRatioXToY = (rectWidth / rectHeight)
+		
+		// Create the camera object
+		camera = Q3ViewAngleAspectCamera_New( &cameraData )
+		if let camera = camera {
+			qd3dStatus = Q3View_SetCamera( quesaView, camera )
+		}
 	}
 	
 	func createDefaultLights() {

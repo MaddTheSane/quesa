@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55C2621F2238F0EC00401C06 /* QuesaSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 55C2621D2238F0EC00401C06 /* QuesaSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55C262262238F10C00401C06 /* QMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C262252238F10C00401C06 /* QMath.swift */; };
+		55C262282239BF7B00401C06 /* QTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C262272239BF7B00401C06 /* QTypes.swift */; };
 		AB3A7CA6055E63B200CA83BE /* E3GeometryBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB3A7B87055E63B100CA83BE /* E3GeometryBox.cpp */; };
 		AB3A7CA8055E63B200CA83BE /* E3GeometryCone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB3A7B89055E63B100CA83BE /* E3GeometryCone.cpp */; };
 		AB3A7CAA055E63B200CA83BE /* E3GeometryCylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB3A7B8B055E63B100CA83BE /* E3GeometryCylinder.cpp */; };
@@ -348,6 +349,7 @@
 		55C2621D2238F0EC00401C06 /* QuesaSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuesaSwift.h; sourceTree = "<group>"; };
 		55C2621E2238F0EC00401C06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55C262252238F10C00401C06 /* QMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMath.swift; sourceTree = "<group>"; };
+		55C262272239BF7B00401C06 /* QTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTypes.swift; sourceTree = "<group>"; };
 		8D07F2C80486CC7A007CD1D0 /* Quesa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quesa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3A7B85055E63B100CA83BE /* E3Geometry.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; path = E3Geometry.cpp; sourceTree = "<group>"; };
 		AB3A7B86055E63B100CA83BE /* E3Geometry.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = E3Geometry.h; sourceTree = "<group>"; };
@@ -740,6 +742,7 @@
 				55C2621D2238F0EC00401C06 /* QuesaSwift.h */,
 				55C2621E2238F0EC00401C06 /* Info.plist */,
 				55C262252238F10C00401C06 /* QMath.swift */,
+				55C262272239BF7B00401C06 /* QTypes.swift */,
 			);
 			path = QuesaSwift;
 			sourceTree = "<group>";
@@ -1464,6 +1467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C262262238F10C00401C06 /* QMath.swift in Sources */,
+				55C262282239BF7B00401C06 /* QTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1827,7 +1831,6 @@
 				INFOPLIST_FILE = QuesaSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.QuesaSwift;
@@ -1881,7 +1884,6 @@
 				INFOPLIST_FILE = QuesaSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.QuesaSwift;

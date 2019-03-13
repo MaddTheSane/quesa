@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		55A8E7AC206EF360008A8C30 /* Quesa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECB0EA50F361BD700EECDAB /* Quesa.framework */; };
 		55A8E7AD206EF368008A8C30 /* Quesa.framework in Copy Private Frameworks */ = {isa = PBXBuildFile; fileRef = BECB0EA50F361BD700EECDAB /* Quesa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		55C2622D2239BF9400401C06 /* QuesaSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C2622C2239BF9400401C06 /* QuesaSwift.framework */; };
+		55C2622E2239BF9400401C06 /* QuesaSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55C2622C2239BF9400401C06 /* QuesaSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		55C262322239C7BD00401C06 /* QD3DCocoaUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C262312239C7BD00401C06 /* QD3DCocoaUtil.swift */; };
 		55C976F9207144DB0063E5C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C976F8207144DB0063E5C6 /* AppDelegate.swift */; };
 		55C976FB207144DC0063E5C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C976FA207144DC0063E5C6 /* Assets.xcassets */; };
 		55C976FE207144DC0063E5C6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C976FC207144DC0063E5C6 /* MainMenu.xib */; };
@@ -37,6 +40,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8D07F2BC0486CC7A007CD1D0;
 			remoteInfo = Framework;
+		};
+		55C2622B2239BF9400401C06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEFFD85D0C4C8C9000202EA8 /* Quesa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55C2621B2238F0EC00401C06;
+			remoteInfo = QuesaSwift;
+		};
+		55C2622F2239BF9400401C06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEFFD85D0C4C8C9000202EA8 /* Quesa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 55C2621A2238F0EC00401C06;
+			remoteInfo = QuesaSwift;
 		};
 		55C9770A207146250063E5C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -68,6 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				55C2622E2239BF9400401C06 /* QuesaSwift.framework in Embed Frameworks */,
 				55C97709207146250063E5C6 /* Quesa.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -98,6 +116,7 @@
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		2D6A02D3FF1986E17F000001 /* QuesaCocoaUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuesaCocoaUtil.h; sourceTree = "<group>"; };
 		2D6A02D4FF1986E17F000001 /* QuesaCocoaUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuesaCocoaUtil.m; sourceTree = "<group>"; };
+		55C262312239C7BD00401C06 /* QD3DCocoaUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QD3DCocoaUtil.swift; sourceTree = "<group>"; };
 		55C976F6207144DB0063E5C6 /* SwiftStereo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStereo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C976F8207144DB0063E5C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C976FA207144DC0063E5C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C2622D2239BF9400401C06 /* QuesaSwift.framework in Frameworks */,
 				55C97708207146250063E5C6 /* Quesa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +254,7 @@
 				55C976FF207144DC0063E5C6 /* Info.plist */,
 				55C97700207144DC0063E5C6 /* SwiftStereo.entitlements */,
 				55C977042071451C0063E5C6 /* QD3DView.swift */,
+				55C262312239C7BD00401C06 /* QD3DCocoaUtil.swift */,
 			);
 			path = SwiftStereo;
 			sourceTree = "<group>";
@@ -251,6 +272,7 @@
 			children = (
 				BECB0EA50F361BD700EECDAB /* Quesa.framework */,
 				BECB0EA70F361BD700EECDAB /* libQuesa.a */,
+				55C2622C2239BF9400401C06 /* QuesaSwift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -285,6 +307,7 @@
 			);
 			dependencies = (
 				55C9770B207146250063E5C6 /* PBXTargetDependency */,
+				55C262302239BF9400401C06 /* PBXTargetDependency */,
 			);
 			name = SwiftStereo;
 			productName = SwiftStereo;
@@ -360,6 +383,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		55C2622C2239BF9400401C06 /* QuesaSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = QuesaSwift.framework;
+			remoteRef = 55C2622B2239BF9400401C06 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		BECB0EA50F361BD700EECDAB /* Quesa.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -404,6 +434,7 @@
 			files = (
 				55C977052071451C0063E5C6 /* QD3DView.swift in Sources */,
 				55C976F9207144DB0063E5C6 /* AppDelegate.swift in Sources */,
+				55C262322239C7BD00401C06 /* QD3DCocoaUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +457,11 @@
 			isa = PBXTargetDependency;
 			name = Framework;
 			targetProxy = 55A8E7A9206EF21D008A8C30 /* PBXContainerItemProxy */;
+		};
+		55C262302239BF9400401C06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QuesaSwift;
+			targetProxy = 55C2622F2239BF9400401C06 /* PBXContainerItemProxy */;
 		};
 		55C9770B207146250063E5C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -465,6 +501,7 @@
 		55C97702207144DC0063E5C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -501,6 +538,7 @@
 		55C97703207144DC0063E5C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";

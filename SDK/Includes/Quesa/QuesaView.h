@@ -936,7 +936,7 @@ Q3View_SetDrawContext (
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3View_GetDrawContext (
     TQ3ViewObject _Nonnull                view,
-    TQ3DrawContextObject _Nonnull         * _Nonnull drawContext
+    TQ3DrawContextObject _Nullable        * _Nonnull drawContext
 );
 
 
