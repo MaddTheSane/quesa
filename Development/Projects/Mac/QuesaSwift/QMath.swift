@@ -35,9 +35,19 @@ public func *(_ inScalar: Float, _ inVec: TQ3Vector3D) -> TQ3Vector3D
 	return TQ3Vector3D(x: inVec.x * inScalar, y: inVec.y * inScalar, z: inVec.z * inScalar)
 }
 
+/// vector = vector * scalar
+public func *(_ inVec: TQ3Vector3D, _ inScalar: Float) -> TQ3Vector3D {
+	return TQ3Vector3D(x: inVec.x * inScalar, y: inVec.y * inScalar, z: inVec.z * inScalar)
+}
+
 /// vector = scalar * vector
 public func *(_ inScalar: Float, _ inVec: TQ3Vector2D) -> TQ3Vector2D
 {
+	return TQ3Vector2D(x: inVec.x * inScalar, y: inVec.y * inScalar)
+}
+
+/// vector = vector * scalar
+public func *(_ inVec: TQ3Vector2D, _ inScalar: Float) -> TQ3Vector2D {
 	return TQ3Vector2D(x: inVec.x * inScalar, y: inVec.y * inScalar)
 }
 
@@ -80,25 +90,28 @@ public func +(_ inPt2: TQ3Point3D, _ inVec2: TQ3Vector3D  ) -> TQ3Point3D
 }
 
 /// pt = pt + vector [2D]
-public func +( _ inPt2: TQ3Point2D, _ inVec2: TQ3Vector2D ) -> TQ3Point2D
+public func +(_ inPt2: TQ3Point2D, _ inVec2: TQ3Vector2D) -> TQ3Point2D
 {
 	return TQ3Point2D(x: inPt2.x + inVec2.x, y: inPt2.y + inVec2.y)
 }
 
 /// pt = pt - vector
-public func -( _ inPt2: TQ3Point3D, _ inVec2: TQ3Vector3D ) -> TQ3Point3D
+public func -(_ inPt2: TQ3Point3D, _ inVec2: TQ3Vector3D) -> TQ3Point3D
 {
-	var theSum = TQ3Point3D(); var inVec = inVec2; var inPt = inPt2;
-	Q3Point3D_Vector3D_Subtract( &inPt, &inVec, &theSum )
-	return theSum
+	let rx = (inPt2).x - (inVec2).x
+	let ry = (inPt2).y - (inVec2).y
+	let rz = (inPt2).z - (inVec2).z
+
+	return TQ3Point3D(x: rx, y: ry, z: rz)
 }
 
 /// pt = pt - vector [2D]
-public func -( _ inPt2: TQ3Point2D, _ inVec2: TQ3Vector2D ) -> TQ3Point2D
+public func -(_ inPt2: TQ3Point2D, _ inVec2: TQ3Vector2D) -> TQ3Point2D
 {
-	var theSum = TQ3Point2D(); var inVec = inVec2; var inPt = inPt2;
-	Q3Point2D_Vector2D_Subtract( &inPt, &inVec, &theSum )
-	return theSum
+	let rx = (inPt2).x - (inVec2).x;
+	let ry = (inPt2).y - (inVec2).y;
+
+	return TQ3Point2D(x: rx, y: ry)
 }
 
 /*
