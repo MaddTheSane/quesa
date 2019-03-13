@@ -397,7 +397,7 @@ E3CocoaDrawContext_NewWithWindow(TQ3ObjectType drawContextType, void *drawContex
 //				as appropriate.
 //-----------------------------------------------------------------------------
 TQ3Status
-E3CocoaDrawContext_SetNSView(TQ3DrawContextObject drawContext, void *nsView)
+E3CocoaDrawContext_SetNSView(TQ3DrawContextObject drawContext, CFTypeRef nsView)
 {	TQ3DrawContextUnionData		*instanceData = (TQ3DrawContextUnionData *) drawContext->FindLeafInstanceData () ;
 
 
@@ -421,7 +421,7 @@ E3CocoaDrawContext_SetNSView(TQ3DrawContextObject drawContext, void *nsView)
 //      E3CocoaDrawContext_GetDisplay : Get the display for an Cocoa draw context.
 //-----------------------------------------------------------------------------
 TQ3Status
-E3CocoaDrawContext_GetNSView(TQ3DrawContextObject drawContext, void **nsView)
+E3CocoaDrawContext_GetNSView(TQ3DrawContextObject drawContext, CFTypeRef*nsView)
 {	TQ3DrawContextUnionData		*instanceData = (TQ3DrawContextUnionData *) drawContext->FindLeafInstanceData () ;
 
 

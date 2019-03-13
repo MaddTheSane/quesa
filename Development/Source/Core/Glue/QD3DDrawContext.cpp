@@ -1628,7 +1628,7 @@ Q3CocoaDrawContext_New(const TQ3CocoaDrawContextData *drawContextData)
 //      Q3CocoaDrawContext_SetNSView : Quesa API entry point.
 //-----------------------------------------------------------------------------
 TQ3Status
-Q3CocoaDrawContext_SetNSView(TQ3DrawContextObject drawContext, void *nsView)
+Q3CocoaDrawContext_SetNSView(TQ3DrawContextObject drawContext, CFTypeRef nsView)
 {
 
 
@@ -1658,7 +1658,7 @@ Q3CocoaDrawContext_SetNSView(TQ3DrawContextObject drawContext, void *nsView)
 //      Q3CocoaDrawContext_GetNSView : Quesa API entry point.
 //-----------------------------------------------------------------------------
 TQ3Status
-Q3CocoaDrawContext_GetNSView(TQ3DrawContextObject drawContext, void **nsView)
+Q3CocoaDrawContext_GetNSView(TQ3DrawContextObject drawContext, CFTypeRef *nsView)
 {
 
 

@@ -262,8 +262,8 @@ TQ3Status				E3CocoaDrawContext_UnregisterClass(void);
 
 TQ3DrawContextObject	E3CocoaDrawContext_New(const TQ3CocoaDrawContextData *drawContextData);
 TQ3DrawContextObject	E3CocoaDrawContext_NewWithWindow(TQ3ObjectType drawContextType, void *drawContextTarget);
-TQ3Status				E3CocoaDrawContext_SetNSView(TQ3DrawContextObject drawContext, void *nsView);
-TQ3Status				E3CocoaDrawContext_GetNSView(TQ3DrawContextObject drawContext, void **nsView);
+TQ3Status				E3CocoaDrawContext_SetNSView(TQ3DrawContextObject drawContext, CFTypeRef nsView);
+TQ3Status				E3CocoaDrawContext_GetNSView(TQ3DrawContextObject drawContext, CFTypeRef *nsView);
 #endif
 
 

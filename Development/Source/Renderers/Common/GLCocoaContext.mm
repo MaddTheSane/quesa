@@ -76,7 +76,7 @@ struct CocoaGLContextData
 {
 	NSOpenGLContext		*glContext;
 	// Strong so that in garbage collected (GC) mode the colector keeps track of these pointers. This is needed since they are not declared as 'id'.
-	__strong void		*nsView;
+	__strong CFTypeRef	nsView;
 	GLint				viewPort[4];
 };
 

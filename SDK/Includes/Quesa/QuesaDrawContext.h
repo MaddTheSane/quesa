@@ -579,7 +579,7 @@ typedef struct TQ3XDrawContextData {
  */
 typedef struct TQ3CocoaDrawContextData {
     TQ3DrawContextData                          drawContextData;
-    void                                        * _Nonnull nsView;
+    CFTypeRef                                   _Nonnull nsView;
 } TQ3CocoaDrawContextData;
 
 #endif // QUESA_OS_COCOA
@@ -1584,7 +1584,7 @@ Q3CocoaDrawContext_New (
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3CocoaDrawContext_SetNSView (
     TQ3DrawContextObject _Nonnull         drawContext,
-    void * _Nonnull                       nsView
+    CFTypeRef _Nonnull                    nsView
 );
 
 
@@ -1604,7 +1604,7 @@ Q3CocoaDrawContext_SetNSView (
 Q3_EXTERN_API_C ( TQ3Status  )
 Q3CocoaDrawContext_GetNSView (
     TQ3DrawContextObject _Nonnull         drawContext,
-    void  * _Nullable * _Nonnull          nsView
+    CFTypeRef _Nullable * _Nonnull        nsView
 );
 
 #endif // QUESA_OS_COCOA
