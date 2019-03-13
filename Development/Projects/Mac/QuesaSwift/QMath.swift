@@ -7,7 +7,6 @@
 
 import Foundation
 import Quesa.QuesaMath
-import simd
 
 //=============================================================================
 //      Unary minus
@@ -16,17 +15,13 @@ import simd
 /// vector = - vector (unary minus)
 public prefix func -(inVec: TQ3Vector3D) -> TQ3Vector3D
 {
-	var result = TQ3Vector3D(); var tmpVec = inVec;
-	Q3Vector3D_Negate( &tmpVec, &result )
-	return result
+	return TQ3Vector3D(x: -inVec.x, y: -inVec.y, z: -inVec.z)
 }
 
 /// vector = - vector (unary minus)
 public prefix func -(inVec: TQ3Vector2D) -> TQ3Vector2D
 {
-	var result = TQ3Vector2D(); var tmpVec = inVec;
-	Q3Vector2D_Negate( &tmpVec, &result )
-	return result
+	return TQ3Vector2D(x: -inVec.x, y: -inVec.y)
 }
 
 
@@ -37,60 +32,43 @@ public prefix func -(inVec: TQ3Vector2D) -> TQ3Vector2D
 /// vector = scalar * vector
 public func *(_ inScalar: Float, _ inVec: TQ3Vector3D) -> TQ3Vector3D
 {
-	var result = TQ3Vector3D(); var inVec2 = inVec;
-	Q3Vector3D_Scale( &inVec2, inScalar, &result )
-	return result
+	return TQ3Vector3D(x: inVec.x * inScalar, y: inVec.y * inScalar, z: inVec.z * inScalar)
 }
 
 /// vector = scalar * vector
 public func *(_ inScalar: Float, _ inVec: TQ3Vector2D) -> TQ3Vector2D
 {
-	var result = TQ3Vector2D(); var invec2 = inVec;
-	Q3Vector2D_Scale( &invec2, inScalar, &result )
-	return result
+	return TQ3Vector2D(x: inVec.x * inScalar, y: inVec.y * inScalar)
 }
 
 /// vector *= scalar
 public func *=(ioA: inout TQ3Vector3D, inScalar: Float )
 {
-	var ioB = ioA
-	Q3Vector3D_Scale( &ioA, inScalar, &ioB )
+	let ioB = inScalar * ioA
 	ioA = ioB
 }
 
 /// vector *= scalar
 public func *=(ioA: inout TQ3Vector2D, inScalar: Float )
 {
-	var ioB = ioA
-	Q3Vector2D_Scale( &ioA, inScalar, &ioB )
+	let ioB = inScalar * ioA
 	ioA = ioB
 }
 
-/*
+
 // point = scalar * point (not usual in math, but useful in 3D computing)
 public func *( _ inScalar: Float, inVec:  TQ3Point3D ) -> TQ3Point3D
 {
-var result = TQ3Point3D()
-	withUnsafeMutablePointer(to: &result) { (hi) -> Void in
-		hi.withMemoryRebound(to: TQ3Vector3D.self, capacity: 1, { (hi1) -> Void in
-			Q3FastVector3D_Scale( (const TQ3Vector3D*)&inVec, inScalar, hi1 );
-		})
-		let hi2 = UnsafeMutableRawPointer(hi)
-		hi2.assumingMemoryBound(to: TQ3Vector3D.self)
-	}
-Q3FastVector3D_Scale( (const TQ3Vector3D*)&inVec, inScalar, (TQ3Vector3D*)&result );
-return result;
+	return TQ3Point3D(x: inVec.x * inScalar, y: inVec.y * inScalar, z: inVec.z * inScalar)
 }
 
 // point = scalar * point (not usual in math, but useful in 3D computing)
-inline TQ3Point2D operator*( float inScalar, const TQ3Point2D& inVec )
+public func *( _ inScalar: Float, _ inVec: TQ3Point2D ) -> TQ3Point2D
 {
-TQ3Point2D result;
-Q3FastVector2D_Scale( (const TQ3Vector2D*)&inVec, inScalar, (TQ3Vector2D*)&result );
-return result;
+	return TQ3Point2D(x: inVec.x * inScalar, y: inVec.y * inScalar)
 }
 
-*/
+
 //=============================================================================
 //      Additive Operations
 //-----------------------------------------------------------------------------
@@ -98,17 +76,13 @@ return result;
 /// pt = pt + vector
 public func +(_ inPt2: TQ3Point3D, _ inVec2: TQ3Vector3D  ) -> TQ3Point3D
 {
-	var theSum = TQ3Point3D(); var inPt = inPt2; var inVec = inVec2;
-Q3Point3D_Vector3D_Add( &inPt, &inVec, &theSum );
-return theSum;
+	return TQ3Point3D(x: inPt2.x + inVec2.x, y: inPt2.y + inVec2.y, z: inPt2.z + inVec2.z)
 }
 
 /// pt = pt + vector [2D]
 public func +( _ inPt2: TQ3Point2D, _ inVec2: TQ3Vector2D ) -> TQ3Point2D
 {
-	var theSum = TQ3Point2D(); var inPt = inPt2; var inVec = inVec2
-	Q3Point2D_Vector2D_Add( &inPt, &inVec, &theSum )
-	return theSum
+	return TQ3Point2D(x: inPt2.x + inVec2.x, y: inPt2.y + inVec2.y)
 }
 
 /// pt = pt - vector
@@ -146,30 +120,22 @@ return result;
 */
 /// vector = vector + vector
 public func + (_ inAa: TQ3Vector3D, _ inBa: TQ3Vector3D) -> TQ3Vector3D {
-	var result = TQ3Vector3D(); var inA = inAa; var inB = inBa;
-	Q3Vector3D_Add( &inA, &inB, &result );
-	return result
+	return TQ3Vector3D(x: inAa.x + inBa.x, y: inAa.y + inBa.y, z: inAa.z + inBa.z)
 }
 
 /// vector = vector + vector [2D]
 public func + (_ inAa: TQ3Vector2D, _ inBa: TQ3Vector2D) -> TQ3Vector2D {
-	var result = TQ3Vector2D(); var inA = inAa; var inB = inBa;
-	Q3Vector2D_Add( &inA, &inB, &result );
-	return result
+	return TQ3Vector2D(x: inAa.x + inBa.x, y: inAa.y + inBa.y)
 }
 
 /// vector = vector - vector
 public func - (_ inAa: TQ3Vector3D, _ inBa: TQ3Vector3D) -> TQ3Vector3D {
-	var result = TQ3Vector3D(); var inA = inAa; var inB = inBa;
-	Q3Vector3D_Subtract( &inA, &inB, &result );
-	return result
+	return TQ3Vector3D(x: inAa.x - inBa.x, y: inAa.y - inBa.y, z: inAa.z - inBa.z)
 }
 
 /// vector = vector - vector [2D]
 public func - (_ inAa: TQ3Vector2D, _ inBa: TQ3Vector2D) -> TQ3Vector2D {
-	var result = TQ3Vector2D(); var inA = inAa; var inB = inBa;
-	Q3Vector2D_Subtract( &inA, &inB, &result );
-	return result
+	return TQ3Vector2D(x: inAa.x - inBa.x, y: inAa.y - inBa.y)
 }
 
 /// vector += vector
