@@ -56,13 +56,13 @@ public func *=(ioA: inout TQ3Vector2D, inScalar: Float )
 }
 
 
-// point = scalar * point (not usual in math, but useful in 3D computing)
+/// point = scalar * point (not usual in math, but useful in 3D computing)
 public func *( _ inScalar: Float, inVec:  TQ3Point3D ) -> TQ3Point3D
 {
 	return TQ3Point3D(x: inVec.x * inScalar, y: inVec.y * inScalar, z: inVec.z * inScalar)
 }
 
-// point = scalar * point (not usual in math, but useful in 3D computing)
+/// point = scalar * point (not usual in math, but useful in 3D computing)
 public func *( _ inScalar: Float, _ inVec: TQ3Point2D ) -> TQ3Point2D
 {
 	return TQ3Point2D(x: inVec.x * inScalar, y: inVec.y * inScalar)
@@ -140,64 +140,56 @@ public func - (_ inAa: TQ3Vector2D, _ inBa: TQ3Vector2D) -> TQ3Vector2D {
 
 /// vector += vector
 public func +=(_ ioA: inout TQ3Vector3D, _ inBa: TQ3Vector3D ) {
-	var ioAa = ioA; var inB = inBa
-	Q3Vector3D_Add( &ioA, &inB, &ioAa );
-	ioA = ioAa
+	ioA.x += inBa.x
+	ioA.y += inBa.y
+	ioA.z += inBa.z
 }
 
 /// vector -= vector
 public func -=(_ ioA: inout TQ3Vector3D, _ inBa: TQ3Vector3D ) {
-	var ioAa = ioA; var inB = inBa
-	Q3Vector3D_Subtract( &ioA, &inB, &ioAa );
-	ioA = ioAa
+	ioA.x -= inBa.x
+	ioA.y -= inBa.y
+	ioA.z -= inBa.z
 }
 
 /// pt += vector
 public func +=(_ ioA: inout TQ3Point3D, _ inBa: TQ3Vector3D )
 {
-	var inB = inBa; var tmpA = ioA;
-	Q3Point3D_Vector3D_Add( &ioA, &inB, &tmpA )
-	ioA = tmpA
+	ioA.x += inBa.x
+	ioA.y += inBa.y
+	ioA.z += inBa.z
 }
 
 /// pt -= vector
 public func -=(_ ioA: inout TQ3Point3D, _ inBa: TQ3Vector3D ) {
-	var inB = inBa; var tmpA = ioA;
-	Q3Point3D_Vector3D_Subtract( &ioA, &inB, &tmpA );
-	ioA = tmpA
+	ioA.x -= inBa.x
+	ioA.y -= inBa.y
+	ioA.z -= inBa.z
 }
 
-/*
-// pt = pt + pt (useful for weighted averages)
-public func +( const TQ3Point3D& inA, const TQ3Point3D& inB ) -> TQ3Point3D
-{
-var result = TQ3Point3D()
-Q3FastVector3D_Add( (const TQ3Vector3D*)&inA, (const TQ3Vector3D*)&inB, (TQ3Vector3D*)&result );
-return result;
+/// pt = pt + pt (useful for weighted averages)
+public func +( _ inA: TQ3Point3D, _ inB: TQ3Point3D ) -> TQ3Point3D {
+	return TQ3Point3D(x: inA.x + inB.x, y: inA.y + inB.y, z: inA.z + inB.z)
 }
 
-// pt = pt + pt (useful for weighted averages) [2D]
-inline TQ3Point2D operator+( const TQ3Point2D& inA, const TQ3Point2D& inB )
-{
-TQ3Point2D result;
-Q3FastVector2D_Add( (const TQ3Vector2D*)&inA, (const TQ3Vector2D*)&inB, (TQ3Vector2D*)&result );
-return result;
+/// pt = pt + pt (useful for weighted averages) [2D]
+public func +( _ inA: TQ3Point2D, _ inB: TQ3Point2D ) -> TQ3Point2D {
+	return TQ3Point2D(x: inA.x + inB.x, y: inA.y + inB.y)
 }
-*/
 
 
 //=============================================================================
 //      Matrix Operations
 //-----------------------------------------------------------------------------
 
-// matrix * matrix
+/// matrix * matrix
 public func *(_ inMata: TQ3Matrix4x4, _ inMat2a: TQ3Matrix4x4 ) -> TQ3Matrix4x4 {
 	var result = TQ3Matrix4x4(); var inMat1 = inMata; var inMat2 = inMat2a
 	Q3Matrix4x4_Multiply( &inMat1, &inMat2, &result )
 	return result
 }
 
-// matrix *= matrix;
+/// matrix *= matrix;
 public func *=(_ ioMat: inout TQ3Matrix4x4 , _ inMat2a: TQ3Matrix4x4 )
 {
 	var io = TQ3Matrix4x4(); var inMat2 = inMat2a;
@@ -260,27 +252,26 @@ public extension TQ3RationalPoint4D {
 }
 
 public func cross(_ inAb: TQ3Vector3D, _ inBb: TQ3Vector3D) -> TQ3Vector3D {
-	var result = TQ3Vector3D(); var inA = inAb; var inB = inBb
-	Q3Vector3D_Cross( &inA, &inB, &result );
-	return result;
+	let rx = ((inAb).y * (inBb).z) - ((inAb).z * (inBb).y)
+	let ry = ((inAb).z * (inBb).x) - ((inAb).x * (inBb).z)
+	let rz = ((inAb).x * (inBb).y) - ((inAb).y * (inBb).x)
+	return TQ3Vector3D(x: rx, y: ry, z: rz)
 }
 
 public func dot(_ inA: TQ3Vector3D, _ inB: TQ3Vector3D) -> Float {
-	var inAb = inA;
-	var inBb = inB
-	return Q3Vector3D_Dot(&inAb, &inBb)
+	return ((inA).x * (inB).x) +
+		((inA).y * (inB).y) +
+		((inA).z * (inB).z)
 }
 
 public func dot(_ inA: TQ3Vector2D, _ inB: TQ3Vector2D) -> Float {
-	var inAb = inA;
-	var inBb = inB
-	return Q3Vector2D_Dot(&inAb, &inBb)
+	return (inA.x * inB.x) +
+		(inA.y * inB.y)
 }
 
-public func normalize(_ inVec2: TQ3Vector3D) -> TQ3Vector3D {
-	var result = TQ3Vector3D(); var inVec = inVec2
-	Q3Vector3D_Normalize( &inVec, &result );
-	return result;
+public func normalize(_ _v1: TQ3Vector3D) -> TQ3Vector3D {
+	let theLength = length(_v1) + kQ3MinFloat;
+	return (1.0 / theLength) * _v1
 }
 
 public func length(_ inVec2: TQ3Vector3D) -> Float {
