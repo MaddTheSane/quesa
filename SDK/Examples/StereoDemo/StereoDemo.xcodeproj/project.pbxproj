@@ -12,6 +12,7 @@
 		55C2622D2239BF9400401C06 /* QuesaSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C2622C2239BF9400401C06 /* QuesaSwift.framework */; };
 		55C2622E2239BF9400401C06 /* QuesaSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55C2622C2239BF9400401C06 /* QuesaSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55C262322239C7BD00401C06 /* QD3DCocoaUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C262312239C7BD00401C06 /* QD3DCocoaUtil.swift */; };
+		55C262342239CA2500401C06 /* DemoGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C262332239CA2500401C06 /* DemoGeometry.swift */; };
 		55C976F9207144DB0063E5C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C976F8207144DB0063E5C6 /* AppDelegate.swift */; };
 		55C976FB207144DC0063E5C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C976FA207144DC0063E5C6 /* Assets.xcassets */; };
 		55C976FE207144DC0063E5C6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C976FC207144DC0063E5C6 /* MainMenu.xib */; };
@@ -117,6 +118,7 @@
 		2D6A02D3FF1986E17F000001 /* QuesaCocoaUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuesaCocoaUtil.h; sourceTree = "<group>"; };
 		2D6A02D4FF1986E17F000001 /* QuesaCocoaUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuesaCocoaUtil.m; sourceTree = "<group>"; };
 		55C262312239C7BD00401C06 /* QD3DCocoaUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QD3DCocoaUtil.swift; sourceTree = "<group>"; };
+		55C262332239CA2500401C06 /* DemoGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoGeometry.swift; sourceTree = "<group>"; };
 		55C976F6207144DB0063E5C6 /* SwiftStereo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStereo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C976F8207144DB0063E5C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C976FA207144DC0063E5C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				55C97700207144DC0063E5C6 /* SwiftStereo.entitlements */,
 				55C977042071451C0063E5C6 /* QD3DView.swift */,
 				55C262312239C7BD00401C06 /* QD3DCocoaUtil.swift */,
+				55C262332239CA2500401C06 /* DemoGeometry.swift */,
 			);
 			path = SwiftStereo;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			files = (
 				55C977052071451C0063E5C6 /* QD3DView.swift in Sources */,
 				55C976F9207144DB0063E5C6 /* AppDelegate.swift in Sources */,
+				55C262342239CA2500401C06 /* DemoGeometry.swift in Sources */,
 				55C262322239C7BD00401C06 /* QD3DCocoaUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

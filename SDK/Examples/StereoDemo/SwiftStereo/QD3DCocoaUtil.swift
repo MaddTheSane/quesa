@@ -30,8 +30,7 @@ import Quesa.QuesaView
 import Quesa.QuesaViewer
 
 
-func bounds(in theView: TQ3ViewObject, for theObject: TQ3Object, _ theBounds: inout TQ3BoundingBox)
-{
+func bounds(in theView: TQ3ViewObject, for theObject: TQ3Object, _ theBounds: inout TQ3BoundingBox) {
 	var qd3dStatus: TQ3Status
 	
 	// Reset theBounds
