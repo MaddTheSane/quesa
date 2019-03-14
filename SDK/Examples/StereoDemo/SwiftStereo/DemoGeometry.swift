@@ -22,6 +22,52 @@ import Quesa.QuesaStorage
 import Quesa.QuesaGeometry
 import QuesaSwift
 
+//-----------------------------------------------------------------------------
+//      createUVsFromPoints : Create UV values from points.
+//-----------------------------------------------------------------------------
+//		Note :	We generate UVs by mapping the X/Y coordinates onto the UV
+//				plane (bit of a hack, but works OK for this app).
+//
+//				The smallest coordinate value is mapped to 0, and the largest
+//				coordinate value is mapped to 1.0.
+//-----------------------------------------------------------------------------
+private func createUVsFromPoints(_ thePoints: [TQ3Point3D], _ theUVs: inout [TQ3Param2D]) {
+	// Initialise ourselves
+	var minX: Float = 0.0
+	var maxX: Float = 1.0
+	var minY: Float = 0.0
+	var maxY: Float = 1.0
+	
+	// First find the minimum and maximum values
+	for n in 0 ..< thePoints.count {
+		if (thePoints[n].x < minX || n == 0){
+			minX = thePoints[n].x;
+		}
+		
+		if (thePoints[n].x > maxX || n == 0) {
+			maxX = thePoints[n].x;
+		}
+		
+		if (thePoints[n].y < minY || n == 0){
+			minY = thePoints[n].y;
+		}
+		
+		if (thePoints[n].y > maxY || n == 0) {
+			maxY = thePoints[n].y;
+		}
+	}
+	
+	let diffX = maxX - minX
+	let diffY = maxY - minY
+	
+	// Now generate the UVs
+	for n in 0 ..< thePoints.count {
+		theUVs[n].u = ((thePoints[n].x - minX) / diffX)
+		theUVs[n].v = ((thePoints[n].y - minY) / diffY)
+	}
+}
+
+
 func createGeomBox() -> TQ3GeometryObject? {
 	var faceColour: [TQ3ColorRGB] = [TQ3ColorRGB(r: 1.0, g: 0.0, b: 0.0),
 									 TQ3ColorRGB(r: 0.0, g: 1.0, b: 0.0),
@@ -162,7 +208,34 @@ func createGeomTriGrid() -> TQ3GeometryObject! {
 }
 
 func createGeomTriMesh() -> TQ3GeometryObject! {
-	return nil
+	var vertPoints = [TQ3Point3D(x: -1.5, y: -1.5, z: 0.0),
+					  TQ3Point3D(x:  0.0, y:  1.5, z: 0.0),
+					  TQ3Point3D(x:  1.5, y: -1.5, z: 0.0),
+					  TQ3Point3D(x:  0.0, y: -1.5, z: -1.0)];
+	var vertColours = [TQ3ColorRGB(r: 1.0, g: 0.0, b: 0.0),
+					   TQ3ColorRGB(r: 0.0, g: 1.0, b: 0.0),
+					   TQ3ColorRGB(r: 0.0, g: 0.0, b: 1.0),
+					   TQ3ColorRGB(r: 1.0, g: 1.0, b: 0.0)];
+	var triangles: [TQ3TriMeshTriangleData] = [TQ3TriMeshTriangleData(pointIndices: (1, 0, 3)), TQ3TriMeshTriangleData(pointIndices: (3, 2, 1))]
+	var vertUVs = [TQ3Param2D](repeating: TQ3Param2D(), count: 4)
+	
+	// Set up the data
+	createUVsFromPoints(vertPoints, &vertUVs);
+
+	return vertUVs.withUnsafeMutableBytes { (vertUV) -> TQ3GeometryObject? in
+		var attrData = [TQ3TriMeshAttributeData](repeating: TQ3TriMeshAttributeData(), count: 2)
+		attrData[0] = TQ3TriMeshAttributeData(attributeType: TQ3AttributeType(kQ3AttributeTypeDiffuseColor.rawValue), data: &vertColours, attributeUseArray: nil)
+		
+		attrData[1].attributeType     = TQ3AttributeType(kQ3AttributeTypeSurfaceUV.rawValue);
+		attrData[1].data              = vertUV.baseAddress;
+		attrData[1].attributeUseArray = nil;
+		
+		var triMeshData = TQ3TriMeshData(triMeshAttributeSet: nil, numTriangles: 2, triangles: &triangles, numTriangleAttributeTypes: 0, triangleAttributeTypes: nil, numEdges: 0, edges: nil, numEdgeAttributeTypes: 0, edgeAttributeTypes: nil, numPoints: 4, points: &vertPoints, numVertexAttributeTypes: 2, vertexAttributeTypes: &attrData, bBox: TQ3BoundingBox())
+		
+		Q3BoundingBox_SetFromPoints3D(&triMeshData.bBox, triMeshData.points, triMeshData.numPoints, TQ3Uns32(MemoryLayout<TQ3Point3D>.size));
+		
+		return Q3TriMesh_New(&triMeshData)
+	}
 }
 
 func createPastelGroup() -> TQ3GroupObject! {

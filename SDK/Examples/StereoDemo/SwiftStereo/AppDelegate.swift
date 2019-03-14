@@ -6,6 +6,19 @@
 //
 
 import Cocoa
+import Quesa
+import Quesa.QuesaDrawContext
+import Quesa.QuesaCamera
+import Quesa.QuesaShader
+import Quesa.QuesaMath
+import Quesa.QuesaView
+import Quesa.QuesaMath
+import Quesa.QuesaLight
+import Quesa.QuesaStyle
+import Quesa.QuesaGroup
+import Quesa.QuesaGeometry
+import Quesa.QuesaTransform
+import Quesa.QuesaRenderer
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
