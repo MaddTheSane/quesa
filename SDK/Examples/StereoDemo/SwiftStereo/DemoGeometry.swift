@@ -22,15 +22,13 @@ import Quesa.QuesaStorage
 import Quesa.QuesaGeometry
 import QuesaSwift
 
-//-----------------------------------------------------------------------------
-//      createUVsFromPoints : Create UV values from points.
-//-----------------------------------------------------------------------------
-//		Note :	We generate UVs by mapping the X/Y coordinates onto the UV
-//				plane (bit of a hack, but works OK for this app).
-//
-//				The smallest coordinate value is mapped to 0, and the largest
-//				coordinate value is mapped to 1.0.
-//-----------------------------------------------------------------------------
+/// Create UV values from points.
+///
+/// We generate UVs by mapping the X/Y coordinates onto the UV
+/// plane (bit of a hack, but works OK for this app).
+///
+/// The smallest coordinate value is mapped to 0, and the largest
+/// coordinate value is mapped to 1.0.
 private func createUVsFromPoints(_ thePoints: [TQ3Point3D], _ theUVs: inout [TQ3Param2D]) {
 	// Initialise ourselves
 	var minX: Float = 0.0
@@ -40,19 +38,19 @@ private func createUVsFromPoints(_ thePoints: [TQ3Point3D], _ theUVs: inout [TQ3
 	
 	// First find the minimum and maximum values
 	for n in 0 ..< thePoints.count {
-		if (thePoints[n].x < minX || n == 0){
+		if thePoints[n].x < minX || n == 0 {
 			minX = thePoints[n].x;
 		}
 		
-		if (thePoints[n].x > maxX || n == 0) {
+		if thePoints[n].x > maxX || n == 0 {
 			maxX = thePoints[n].x;
 		}
 		
-		if (thePoints[n].y < minY || n == 0){
+		if thePoints[n].y < minY || n == 0 {
 			minY = thePoints[n].y;
 		}
 		
-		if (thePoints[n].y > maxY || n == 0) {
+		if thePoints[n].y > maxY || n == 0 {
 			maxY = thePoints[n].y;
 		}
 	}
@@ -61,21 +59,23 @@ private func createUVsFromPoints(_ thePoints: [TQ3Point3D], _ theUVs: inout [TQ3
 	let diffY = maxY - minY
 	
 	// Now generate the UVs
+	theUVs.removeAll(keepingCapacity: true)
+	theUVs.reserveCapacity(thePoints.count)
 	for n in 0 ..< thePoints.count {
-		theUVs[n].u = ((thePoints[n].x - minX) / diffX)
-		theUVs[n].v = ((thePoints[n].y - minY) / diffY)
+		let u = (thePoints[n].x - minX) / diffX
+		let v = (thePoints[n].y - minY) / diffY
+		theUVs.append(TQ3Param2D(u: u, v: v))
 	}
 }
 
 
 func createGeomBox() -> TQ3GeometryObject? {
-	var faceColour: [TQ3ColorRGB] = [TQ3ColorRGB(r: 1.0, g: 0.0, b: 0.0),
-									 TQ3ColorRGB(r: 0.0, g: 1.0, b: 0.0),
-									 TQ3ColorRGB(r: 0.0, g: 0.0, b: 1.0),
-									 TQ3ColorRGB(r: 1.0, g: 1.0, b: 0.0),
-									 TQ3ColorRGB(r: 1.0, g: 0.0, b: 1.0),
-									 TQ3ColorRGB(r: 0.0, g: 1.0, b: 1.0)];
-	//TQ3AttributeSet		faceAttributes[6];
+	var faceColour = [TQ3ColorRGB(r: 1.0, g: 0.0, b: 0.0),
+					  TQ3ColorRGB(r: 0.0, g: 1.0, b: 0.0),
+					  TQ3ColorRGB(r: 0.0, g: 0.0, b: 1.0),
+					  TQ3ColorRGB(r: 1.0, g: 1.0, b: 0.0),
+					  TQ3ColorRGB(r: 1.0, g: 0.0, b: 1.0),
+					  TQ3ColorRGB(r: 0.0, g: 1.0, b: 1.0)]
 	var faceAttributes = [TQ3AttributeSet?](repeating: nil, count: 6)
 	var theMatrix = TQ3Matrix4x4()
 	var boxData = TQ3BoxData()
@@ -94,6 +94,14 @@ func createGeomBox() -> TQ3GeometryObject? {
 			Q3AttributeSet_Add(faceAttributes[n]!, TQ3AttributeType(kQ3AttributeTypeDiffuseColor.rawValue), &faceColour[n]);
 		}
 	}
+	defer {
+		// Clean up
+		for n in 0 ..< 6 {
+			if faceAttributes[n] != nil {
+				Q3Object_Dispose(faceAttributes[n])
+			}
+		}
+	}
 	
 	// Rotate it so that we can see all the faces
 	Q3Matrix4x4_SetRotate_XYZ(&theMatrix,
@@ -101,11 +109,11 @@ func createGeomBox() -> TQ3GeometryObject? {
 							  Q3Math_DegreesToRadians(45.0),
 							  Q3Math_DegreesToRadians(45.0));
 	var aVec = TQ3Vector3D()
-	Q3Vector3D_Transform(&boxData.orientation, &theMatrix, &aVec);
+	Q3Vector3D_Transform(&boxData.orientation, &theMatrix, &aVec)
 	boxData.orientation = aVec
-	Q3Vector3D_Transform(&boxData.majorAxis,   &theMatrix, &aVec);
+	Q3Vector3D_Transform(&boxData.majorAxis,   &theMatrix, &aVec)
 	boxData.majorAxis = aVec
-	Q3Vector3D_Transform(&boxData.minorAxis,   &theMatrix, &aVec);
+	Q3Vector3D_Transform(&boxData.minorAxis,   &theMatrix, &aVec)
 	boxData.minorAxis = aVec
 
 	// Create the geometry
@@ -113,15 +121,6 @@ func createGeomBox() -> TQ3GeometryObject? {
 		boxData.faceAttributeSet = attrSet.baseAddress!
 
 		return Q3Box_New(&boxData)
-	}
-	
-	
-	
-	// Clean up
-	for n in 0 ..< 6 {
-		if faceAttributes[n] != nil {
-			Q3Object_Dispose(faceAttributes[n])
-		}
 	}
 	
 	return(theBox);
@@ -207,7 +206,7 @@ func createGeomTriGrid() -> TQ3GeometryObject! {
 	return nil
 }
 
-func createGeomTriMesh() -> TQ3GeometryObject! {
+func createGeomTriMesh() -> TQ3GeometryObject? {
 	var vertPoints = [TQ3Point3D(x: -1.5, y: -1.5, z: 0.0),
 					  TQ3Point3D(x:  0.0, y:  1.5, z: 0.0),
 					  TQ3Point3D(x:  1.5, y: -1.5, z: 0.0),
@@ -217,7 +216,7 @@ func createGeomTriMesh() -> TQ3GeometryObject! {
 					   TQ3ColorRGB(r: 0.0, g: 0.0, b: 1.0),
 					   TQ3ColorRGB(r: 1.0, g: 1.0, b: 0.0)];
 	var triangles: [TQ3TriMeshTriangleData] = [TQ3TriMeshTriangleData(pointIndices: (1, 0, 3)), TQ3TriMeshTriangleData(pointIndices: (3, 2, 1))]
-	var vertUVs = [TQ3Param2D](repeating: TQ3Param2D(), count: 4)
+	var vertUVs = [TQ3Param2D]()
 	
 	// Set up the data
 	createUVsFromPoints(vertPoints, &vertUVs);
@@ -226,8 +225,8 @@ func createGeomTriMesh() -> TQ3GeometryObject! {
 		var attrData = [TQ3TriMeshAttributeData](repeating: TQ3TriMeshAttributeData(), count: 2)
 		attrData[0] = TQ3TriMeshAttributeData(attributeType: TQ3AttributeType(kQ3AttributeTypeDiffuseColor.rawValue), data: &vertColours, attributeUseArray: nil)
 		
-		attrData[1].attributeType     = TQ3AttributeType(kQ3AttributeTypeSurfaceUV.rawValue);
-		attrData[1].data              = vertUV.baseAddress;
+		attrData[1].attributeType     = TQ3AttributeType(kQ3AttributeTypeSurfaceUV.rawValue)
+		attrData[1].data              = vertUV.baseAddress
 		attrData[1].attributeUseArray = nil;
 		
 		var triMeshData = TQ3TriMeshData(triMeshAttributeSet: nil, numTriangles: 2, triangles: &triangles, numTriangleAttributeTypes: 0, triangleAttributeTypes: nil, numEdges: 0, edges: nil, numEdgeAttributeTypes: 0, edgeAttributeTypes: nil, numPoints: 4, points: &vertPoints, numVertexAttributeTypes: 2, vertexAttributeTypes: &attrData, bBox: TQ3BoundingBox())
@@ -268,30 +267,31 @@ func createGeomBounds(_ theGeom: TQ3GeometryObject, in aView: TQ3ViewObject) -> 
 	}
 	
 	// Calculate the bounding box
-	bounds(in: aView, for: theGeom, &theBounds);
+	bounds(in: aView, for: theGeom, &theBounds)
 	
 	// Add the box geometry
-	boxData.origin = theBounds.min;
+	boxData.origin = theBounds.min
 	
-	Q3Vector3D_Set(&boxData.orientation, 0.0, theBounds.max.y - theBounds.min.y, 0.0);
-	Q3Vector3D_Set(&boxData.majorAxis,   0.0, 0.0, theBounds.max.z - theBounds.min.z);
-	Q3Vector3D_Set(&boxData.minorAxis,   theBounds.max.x - theBounds.min.x, 0.0, 0.0);
+	Q3Vector3D_Set(&boxData.orientation, 0.0, theBounds.max.y - theBounds.min.y, 0.0)
+	Q3Vector3D_Set(&boxData.majorAxis,   0.0, 0.0, theBounds.max.z - theBounds.min.z)
+	Q3Vector3D_Set(&boxData.minorAxis,   theBounds.max.x - theBounds.min.x, 0.0, 0.0)
 	
 	boxData.faceAttributeSet = nil;
-	boxData.boxAttributeSet  = Q3AttributeSet_New();
+	boxData.boxAttributeSet  = Q3AttributeSet_New()
 	if let bas = boxData.boxAttributeSet {
-		Q3AttributeSet_Add(bas, TQ3AttributeType(kQ3AttributeTypeDiffuseColor.rawValue), &boxColour);
+		Q3AttributeSet_Add(bas, TQ3AttributeType(kQ3AttributeTypeDiffuseColor.rawValue), &boxColour)
+	}
+	defer {
+		// Clean up
+		if boxData.boxAttributeSet != nil {
+			Q3Object_Dispose(boxData.boxAttributeSet)
+		}
 	}
 	
 	if let theBox = Q3Box_New(&boxData) {
-		Q3Group_AddObject(theGroup, theBox);
-		Q3Object_Dispose(theBox);
+		Q3Group_AddObject(theGroup, theBox)
+		Q3Object_Dispose(theBox)
 	}
 	
-	// Clean up
-	if boxData.boxAttributeSet != nil {
-		Q3Object_Dispose(boxData.boxAttributeSet)
-	}
-	
-	return(theGroup);
+	return theGroup
 }
